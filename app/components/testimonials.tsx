@@ -20,8 +20,8 @@ export default function Testimonials() {
               strokeWidth="1.5">
               <path d="M12 2l8.5 5v10L12 22l-8.5-5V7z" />
             </svg></div>
-          <h3 className="testimonials-title">Sistema de Hexágonos</h3>
-          <p className="feature-desc">Cada reporte genera un hexágono. Más votos = mayor categoría y duración.</p>
+          <h3 className="testimonials-title">Juan P.</h3>
+          <p className="feature-desc">Me siento más seguro usando la aplicación.</p>
         </div>
         <div className="testimonials-card liquid-glass reveal" data-delay="1">
           <div className="testimonials-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -30,16 +30,16 @@ export default function Testimonials() {
               <circle cx="8.5" cy="8.5" r="1.5" />
               <polyline points="21 15 16 10 5 21" />
             </svg></div>
-          <h3 className="testimonials-title">Fotos & Videos</h3>
-          <p className="testimonials-desc">Adjunta evidencia visual para hacer tus reportes más creíbles.</p>
+          <h3 className="testimonials-title">María L.</h3>
+          <p className="testimonials-desc">La interfaz es clara y fácil de entender.</p>
         </div>
         <div className="testimonials-card liquid-glass reveal" data-delay="2">
           <div className="testimonials-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
               strokeWidth="1.5">
               <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
             </svg></div>
-          <h3 className="testimonials-title">Comunidad Activa</h3>
-          <p className="testimonials-desc">Vota y comenta. Juntos construimos un mapa de seguridad real.</p>
+          <h3 className="testimonials-title">Carlos R.</h3>
+          <p className="testimonials-desc">Ahora puedo monitorear todo en tiempo real.</p>
         </div>
         <div className="testimonials-card liquid-glass reveal" data-delay="3">
           <div className="testimonials-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -47,8 +47,8 @@ export default function Testimonials() {
               <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
               <circle cx="12" cy="10" r="3" />
             </svg></div>
-          <h3 className="testimonials-title">Geolocalización</h3>
-          <p className="testimonials-desc">Marca la ubicación exacta y visualiza reportes cercanos.</p>
+          <h3 className="testimonials-title">Sofía M.</h3>
+          <p className="testimonials-desc">Es rápido y confiable, justo lo que necesitaba.</p>
         </div>
       </div>
     </div>
