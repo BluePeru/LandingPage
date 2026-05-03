@@ -65,6 +65,13 @@ body {
   user-select: none;
 }
 
+.app-body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 a {
   text-decoration: none;
   color: inherit
@@ -143,7 +150,8 @@ ul {
   background: rgba(3, 7, 18, 0.7);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(3, 7, 18, 0.7);
+
 }
 
 .nav-logo {
@@ -1414,7 +1422,7 @@ ul {
 /* ==================== FOOTER ==================== */
 .footer {
   border-top: 1px solid rgba(255, 255, 255, 0.05);
-  padding: 40px 48px;
+  padding: 30px;
   background: #030712
 }
 
@@ -1629,3 +1637,35 @@ ul {
   }
   
 }
+
+/* Sección de contacto: ocupa casi toda la pantalla y centra el contenido */
+.contact-section {
+  min-height: 80vh;          /* ocupa toda la altura de la ventana */
+  display: flex;              /* activa flexbox */
+  align-items: center;        /* centra verticalmente */
+  justify-content: center;    /* centra horizontalmente */
+  margin-top: 45px;
+}
+
+/* Contenedor del formulario con efecto glass */
+.contact-form {
+  width: 100%;
+  max-width: 480px;
+  background: rgba(255, 255, 255, 0.05); /* semi-transparente sobre fondo */
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.4); /* glow azul */
+  backdrop-filter: blur(6px); /* efecto glass */
+}
+
+/* Título del formulario */
+.contact-form h2 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 1.6rem;
+  color: #3b82f6; /* azul eléctrico */
+}
+
+
+
+

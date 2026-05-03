@@ -15,17 +15,7 @@ import Footer from './components/footer';
 import Testimonials from './components/testimonials';
 
 export default function Home() {
-  const [loading, setLoading] = useState(true);
-  const [fade, setFade] = useState(false);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-      setFade(true);
-    }, 2000);
-    return () => clearTimeout(timer);
-   }, []);
-   
 
   useEffect(() => {
     const hamburger = document.getElementById("nav-hamburger");
@@ -138,16 +128,12 @@ export default function Home() {
         nav.classList.toggle("scrolled", window.scrollY > 60);
       });
     }
-  }, [loading]);
-
-    if (loading) return <Loader />;
-
+  }, []);
 
   return (
-    <div className={fade ? "fade-in" : ""}>
+    <>
 
            {/* ===== NAVBAR ===== */}
-      <Navbar />
 
   {/* ===== HERO — CINEMATIC VIDEO ===== */}
       <Hero />
@@ -174,8 +160,8 @@ export default function Home() {
 
       <CTA />
   {/* ===== FOOTER ===== */}
-      <Footer />
-      </div>
+
+      </>
   );
   
 }

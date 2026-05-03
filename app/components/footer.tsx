@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 
 
@@ -17,9 +19,9 @@ export default function Footer() {
         <p className="footer-copy">© 2025 Blue. Todos los derechos reservados.</p>
       </div>
       <div className="footer-right">
-        <a href="#" className="footer-link">Privacidad</a>
-        <a href="#" className="footer-link">Términos</a>
-        <a href="#" className="footer-link">Contacto</a>
+        <Link href="/privacity" className="footer-link">Privacidad</Link>
+        <Link href="/terms" className="footer-link">Términos</Link>
+        <Link href="/contact" className="footer-link">Contacto</Link>
       </div>
     </div>
   </footer>
