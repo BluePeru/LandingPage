@@ -63,6 +63,13 @@ body {
   color: #fff;
   overflow-x: hidden;
   user-select: none;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
 }
 
 .app-body {
@@ -623,48 +630,92 @@ ul {
 }
 
 /* ==================== HOW IT WORKS ==================== */
-.steps-grid {
+
+.section-how {
+  position: relative;
+  z-index: 10;
+    min-height: 75vh;          /* ocupa casi toda la pantalla */
+}
+
+.how-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px
 }
 
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 2fr);
+  gap: 24px;
+}
+
 .step-card {
-  padding: 40px 32px;
-  border-radius: 24px;
+  padding: 32px 24px;
+  border-radius: 20px;
   text-align: left;
-  transition: transform .3s, border-color .3s
+  transition: transform .3s, border-color .3s;
 }
 
 .step-card:hover {
-  transform: translateY(-5px);
-  border-color: rgba(255, 255, 255, 0.15)
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.1);
 }
 
+.step-icon {
+  margin-bottom: 20px;
+  color: #5BC0F8;
+}
 .step-number {
   font-family: 'Fustat', sans-serif;
   font-weight: 800;
   font-size: 48px;
   color: rgba(255, 255, 255, 0.05);
   line-height: 1;
-  margin-bottom: 24px
+  margin-bottom: 24px;
 }
 
-.step-icon {
-  margin-bottom: 20px;
-  color: #5BC0F8
-}
 
 .step-title {
   font-family: 'Fustat', sans-serif;
   font-weight: 700;
-  font-size: 20px;
-  margin-bottom: 12px;
-  color: #fff
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #fff;
 }
 
 .step-desc {
-  font-size: 15px;
+  font-size: 14px;
+  color: #888;
+  line-height: 1.7;
+}
+
+.how-card {
+  padding: 32px 24px;
+  border-radius: 20px;
+  text-align: left;
+  transition: transform .3s, border-color .3s
+}
+
+.how-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.1)
+}
+
+.how-icon {
+  margin-bottom: 20px;
+  color: #5BC0F8
+}
+
+.how-title {
+  font-family: 'Fustat', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #fff
+}
+
+.how-desc {
+  font-size: 14px;
   color: #888;
   line-height: 1.7
 }
@@ -989,10 +1040,13 @@ ul {
 /* ==================== USE CASES ==================== */
 
 .section-usecases {
-  margin-top: 140px;
-  margin-bottom: 10px;
-  position: relative;
-  z-index: 10
+  min-height: 100vh;          /* cada sección ocupa toda la pantalla */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;    /* centra verticalmente */
+  align-items: center;        /* centra horizontalmente */
+  padding: 60px 20px;         /* espacio interno */
+  box-sizing: border-box
 }
 
 .usecases-grid {
@@ -1034,15 +1088,55 @@ ul {
 
 /* ==================== FEATURES ==================== */
 .section-features {
-  padding-top: 100px;
   position: relative;
-  z-index: 10
+  z-index: 10;
+    min-height: 75vh;          /* ocupa casi toda la pantalla */
 }
 
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 2fr);
   gap: 24px
+}
+
+.feature-card {
+  padding: 32px 24px;
+  border-radius: 20px;
+  text-align: left;
+  transition: transform .3s, border-color .3s;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.feature-icon {
+  margin-bottom: 20px;
+  color: #5BC0F8;
+}
+.feature-number {
+  font-family: 'Fustat', sans-serif;
+  font-weight: 800;
+  font-size: 48px;
+  color: rgba(255, 255, 255, 0.05);
+  line-height: 1;
+  margin-bottom: 24px;
+}
+
+
+.feature-title {
+  font-family: 'Fustat', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.feature-desc {
+  font-size: 14px;
+  color: #888;
+  line-height: 1.7;
 }
 
 .feature-card {
@@ -1062,40 +1156,31 @@ ul {
   color: #5BC0F8
 }
 
-.feature-title {
-  font-family: 'Fustat', sans-serif;
-  font-weight: 700;
-  font-size: 18px;
-  margin-bottom: 10px;
-  color: #fff
-}
 
-.feature-desc {
-  font-size: 14px;
-  color: #888;
-  line-height: 1.7
-}
 
 /* ==================== WHO ARE WE ==================== */
 
-#whoarewe {
+.section-whoarewe{
+min-height: 100vh;          /* cada sección ocupa toda la pantalla */
   display: flex;
   flex-direction: column;
-  justify-content: center;   /* centra verticalmente */
-  align-items: center;       /* centra horizontalmente */
-  min-height: 85vh;          /* ocupa casi toda la pantalla */
-  text-align: center;        /* centra el texto */
-  padding: 40px 20px;        /* espacio interno */
+  justify-content: center;    /* centra verticalmente */
+  align-items: center;        /* centra horizontalmente */
+  padding: 60px 20px;         /* espacio interno */
+  box-sizing: border-box
 }
 
 
 
 /* ==================== TESTIMONIALS ==================== */
 .section-testimonials {
-  padding-top: 100px;
-  position: relative;
-  z-index: 10;
-  margin-top: 75px;
+min-height: 100vh;          /* cada sección ocupa toda la pantalla */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;    /* centra verticalmente */
+  align-items: center;        /* centra horizontalmente */
+  padding: 60px 20px;         /* espacio interno */
+  box-sizing: border-box
 }
 
 .testimonials-grid {
@@ -1432,10 +1517,13 @@ ul {
 /* ==================== FOOTER ==================== */
 .footer {
   width: 100%;
+  min-height: 80px;          /* altura por defecto */
   border-top: 1px solid rgba(255, 255, 255, 0.05);
-  padding: 30px;
+  padding: 30px 20px;
   background: #030712;
 }
+
+
 
 .footer-inner {
   width: 100%;
@@ -1444,6 +1532,7 @@ ul {
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap; /* para que en móvil se acomode */
+  min-height: 80px; /* asegura consistencia */
 }
 
 .footer-logo {
@@ -1478,13 +1567,7 @@ ul {
 }
 
 @media(max-width:1250px){
-
-  .steps-grid {
-    grid-template-columns: repeat(3, 1fr);
-    max-width: 100%;
-    margin: 0 auto
-  }
-
+  
   .usecases-grid {
     grid-template-columns: repeat(1, 1fr);
     margin: 0 100px;
@@ -1493,19 +1576,13 @@ ul {
 }
 
 /* ==================== RESPONSIVE ==================== */
-@media(max-width:1100px) {
+@media(max-width:1024px) {
 
-  .steps-grid {
-    grid-template-columns: repeat(3, 1fr);
-    max-width: 100%;
-    margin: 0 auto
-  }
-
-   .usecases-grid {
+.steps-grid {
     grid-template-columns: repeat(1, 1fr);
-    margin: 0 100px;
-    margin-top: 50px;
   }
+
+.usecases-grid, .features-grid { grid-template-columns: repeat(1, 1fr); }
 
   .app-phones {
     transform: scale(0.85);
@@ -1585,9 +1662,7 @@ ul {
 @media(max-width:900px) {
 
 
-  .testimonials-grid {
-    grid-template-columns: repeat(2, 1fr)
-  }
+.testimonials-grid { grid-template-columns: repeat(2, 1fr); }
 
 
   .usecases-grid {
@@ -1789,15 +1864,19 @@ ul {
 
   @media(max-width:640px) {
 
+
+    .steps-grid {
+    grid-template-columns: 1fr;
+    margin: 0 20px; /* margen más pequeño para que no se corte */
+  }
     .testimonials-grid {
     grid-template-columns: repeat(2, 1fr)
   }
+  
+.usecases-grid, .features-grid { grid-template-columns: 1fr; margin: 0 20px; }
+  .footer-inner { flex-direction: column; align-items: flex-start; }
+  .footer-right { justify-content: flex-start; gap: 16px; }
 
-  .steps-grid {
-    grid-template-columns: 1fr;
-    max-width: 10%;
-    margin: 0 auto
-  }
   .navbar {
     padding: 12px 20px
   }
@@ -1862,11 +1941,9 @@ ul {
     padding: 60px 20px
   }
 
-  .features-grid {
-    grid-template-columns: 1fr
+  .steps-grid {
+    grid-template-columns: 1fr;
   }
-
-  
 
   .footer-inner {
     flex-direction: column;
