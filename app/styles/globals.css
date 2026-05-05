@@ -134,6 +134,7 @@ ul {
 
 /* ==================== NAVBAR ==================== */
 .navbar {
+  
   position: fixed;
   top: 0;
   left: 0;
@@ -144,14 +145,14 @@ ul {
   justify-content: space-between;
   padding: 16px 48px;
   transition: background .35s, border-bottom .35s, backdrop-filter .35s;
+
 }
 
 .navbar.scrolled {
   background: rgba(3, 7, 18, 0.7);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(3, 7, 18, 0.7);
-
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
 }
 
 .nav-logo {
@@ -989,6 +990,7 @@ ul {
 
 .section-usecases {
   padding-top: 100px;
+  padding-bottom: 116px;
   position: relative;
   z-index: 10
 }
@@ -1076,10 +1078,17 @@ ul {
 
 /* ==================== WHO ARE WE ==================== */
 
-.section-whoarewe {
-  margin-bottom: 50px;
-  padding: 80px 48px;
+#whoarewe {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;   /* centra verticalmente */
+  align-items: center;       /* centra horizontalmente */
+  min-height: 84vh;          /* ocupa casi toda la pantalla */
+  text-align: center;        /* centra el texto */
+  padding: 40px 20px;        /* espacio interno */
 }
+
+
 
 /* ==================== TESTIMONIALS ==================== */
 .section-testimonials {
@@ -1421,17 +1430,19 @@ ul {
 
 /* ==================== FOOTER ==================== */
 .footer {
+  width: 100%;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   padding: 30px;
-  background: #030712
+  background: #030712;
 }
 
 .footer-inner {
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 100%;
+  padding: 0 20px;
   display: flex;
   align-items: center;
-  justify-content: space-between
+  justify-content: space-between;
+  flex-wrap: wrap; /* para que en móvil se acomode */
 }
 
 .footer-logo {
@@ -1465,16 +1476,34 @@ ul {
   color: #fff
 }
 
-/* ==================== RESPONSIVE ==================== */
-@media(max-width:1024px) {
-  .features-grid {
-    grid-template-columns: repeat(2, 1fr)
-  }
+@media(max-width:1250px){
 
   .steps-grid {
-    grid-template-columns: 1fr;
-    max-width: 480px;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 100%;
     margin: 0 auto
+  }
+
+  .usecases-grid {
+    grid-template-columns: repeat(1, 1fr);
+    margin: 0 100px;
+    margin-top: 50px;
+  }
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media(max-width:1100px) {
+
+  .steps-grid {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 100%;
+    margin: 0 auto
+  }
+
+   .usecases-grid {
+    grid-template-columns: repeat(1, 1fr);
+    margin: 0 100px;
+    margin-top: 50px;
   }
 
   .app-phones {
@@ -1482,6 +1511,8 @@ ul {
     transform-origin: top center;
     margin-bottom: -80px
   }
+  
+
 
   .planet-wrapper {
     height: 300px
@@ -1495,9 +1526,277 @@ ul {
   .section-features {
     padding-top: 80px
   }
+    .nav-links {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: rgba(10, 15, 30, 0.95);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border-radius: 14px;
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    margin: 0 16px
+  }
+
+  .navbar {
+    padding: 12px 20px
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: rgba(10, 15, 30, 0.95);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border-radius: 14px;
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    margin: 0 16px
+  }
+
+  .nav-links.open {
+    display: flex
+  }
+
+  .nav-dot {
+    display: none
+  }
+
+  .nav-hamburger {
+    display: flex;
+    margin-left: auto
+  }
+
+  .nav-cta-btn {
+    display: none
+  }
+
+}
+
+@media(max-width:900px) {
+
+
+  .testimonials-grid {
+    grid-template-columns: repeat(2, 1fr)
+  }
+
+
+  .usecases-grid {
+    grid-template-columns: repeat(1, 1fr);
+    margin: 0 100px;
+    margin-top: 50px;
+  }
+
+   .app-phones {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  overflow-x: auto;             /* scroll horizontal */
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+  padding: 0 20px;              /* espacio lateral */
+  scroll-padding-left: 20px;    /* asegura que el primero no se corte */
+  justify-content: flex-start;  /* empieza desde la izquierda */
+}
+
+.app-phones::-webkit-scrollbar {
+  display: none;
+}
+
+.phone-mockup {
+  flex-shrink: 0;
+  width: 260px;
+  height: 500px;
+  scroll-snap-align: start;     /* cada teléfono se alinea desde el inicio */
+}
+
+.phone-frame,
+.phone-frame.featured {
+  width: 260px;
+  height: 420px;
+  border-width: 3px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+}
+ /* Scale planet more for mobile */
+  .planet-wrapper {
+    width: 100%;
+    margin-top: 20px;
+    overflow: hidden;
+    position: relative;
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 100%);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: cover;
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 100%);
+  mask-repeat: no-repeat;
+  mask-size: cover;
+  }
+
+  .planet {
+    transform: scale(0.45);
+    transform-origin: top center
+  }
 }
 
 @media(max-width:768px) {
+
+  .contact-section {
+
+    margin: 0 20px
+}
+
+  .navbar {
+    padding: 12px 20px
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: rgba(10, 15, 30, 0.95);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border-radius: 14px;
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    margin: 0 16px
+  }
+
+  .nav-links.open {
+    display: flex
+  }
+
+  .nav-dot {
+    display: none
+  }
+
+  .nav-hamburger {
+    display: flex;
+    margin-left: auto
+  }
+
+  .nav-cta-btn {
+    display: none
+  }
+
+  .hero {
+    padding: 0 20px
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .btn-hero-primary,
+  .btn-hero-secondary {
+    width: 100%;
+    justify-content: center
+  }
+
+  .hide-mobile {
+    display: none
+  }
+
+  .section {
+    padding: 60px 20px;
+    overflow: hidden;
+  }
+
+  .section-mission {
+    padding: 60px 20px
+  }
+
+  .features-grid {
+    grid-template-columns: 3fr
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+  }
+
+  .btn-primary-light,
+  .btn-secondary-light {
+    width: 100%;
+    justify-content: center
+  }
+
+  .app-phones {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  overflow-x: auto;             /* scroll horizontal */
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+  padding: 0 20px;              /* espacio lateral */
+  scroll-padding-left: 20px;    /* asegura que el primero no se corte */
+  justify-content: flex-start;  /* empieza desde la izquierda */
+}
+
+.app-phones::-webkit-scrollbar {
+  display: none;
+}
+
+.phone-mockup {
+  flex-shrink: 0;
+  width: 260px;
+  height: 500px;
+  scroll-snap-align: start;     /* cada teléfono se alinea desde el inicio */
+}
+
+.phone-frame,
+.phone-frame.featured {
+  width: 260px;
+  height: 420px;
+  border-width: 3px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+}
+ /* Scale planet more for mobile */
+  .planet-wrapper {
+    width: 100%;
+    margin-top: 20px;
+    overflow: hidden;
+    position: relative;
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 100%);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: cover;
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 100%);
+  mask-repeat: no-repeat;
+  mask-size: cover;
+  }
+
+  .planet {
+    transform: scale(0.45);
+    transform-origin: top center
+  }
+  
+
+}
+
+  @media(max-width:640px) {
+
+    .testimonials-grid {
+    grid-template-columns: repeat(2, 1fr)
+  }
+
+  .steps-grid {
+    grid-template-columns: 1fr;
+    max-width: 10%;
+    margin: 0 auto
+  }
   .navbar {
     padding: 12px 20px
   }
@@ -1584,51 +1883,53 @@ ul {
     justify-content: center
   }
 
-  /* Horizontal swipe for app phones on mobile */
-  .app-phones {
-    transform: none !important;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: flex-end;
-    gap: 16px;
-    padding: 0 20px 40px;
-    overflow-x: auto;
-    overflow-y: hidden;
-    scroll-snap-type: x mandatory;
-    width: 100%;
-    margin: 20px 0 0;
-    -webkit-overflow-scrolling: touch;
-  }
 
-  .app-phones::-webkit-scrollbar {
-    display: none
-  }
+.app-phones {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  overflow-x: auto;             /* scroll horizontal */
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+  padding: 0 20px;              /* espacio lateral */
+  scroll-padding-left: 20px;    /* asegura que el primero no se corte */
+  justify-content: flex-start;  /* empieza desde la izquierda */
+}
 
-  .phone-mockup {
-    scroll-snap-align: center;
-    flex-shrink: 0;
-    width: 260px;
-    transform: none !important;
-  }
+.app-phones::-webkit-scrollbar {
+  display: none;
+}
 
-  .phone-frame,
-  .phone-frame.featured {
-    width: 260px;
-    height: 520px;
-    border-width: 3px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
-  }
+.phone-mockup {
+  flex-shrink: 0;
+  width: 260px;
+  height: 500px;
+  scroll-snap-align: start;     /* cada teléfono se alinea desde el inicio */
+}
 
-  .phone-left,
-  .phone-right {
-    transform: none !important
-  }
+.phone-frame,
+.phone-frame.featured {
+  width: 260px;
+  height: 420px;
+  border-width: 3px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+}
+
 
   /* Scale planet more for mobile */
   .planet-wrapper {
-    height: 180px;
+    width: 100%;
     margin-top: 20px;
-    overflow: hidden
+    overflow: hidden;
+    position: relative;
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 100%);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: cover;
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 100%);
+  mask-repeat: no-repeat;
+  mask-size: cover;
   }
 
   .planet {
@@ -1640,17 +1941,20 @@ ul {
 
 /* Sección de contacto: ocupa casi toda la pantalla y centra el contenido */
 .contact-section {
-  min-height: 80vh;          /* ocupa toda la altura de la ventana */
-  display: flex;              /* activa flexbox */
-  align-items: center;        /* centra verticalmente */
-  justify-content: center;    /* centra horizontalmente */
-  margin-top: 45px;
+  min-height: 80vh;              /* ocupa casi toda la pantalla */
+  display: flex;
+  justify-content: center;       /* centra horizontalmente */
+  align-items: center;           /* centra verticalmente */
+  padding: 2rem;
+  margin-top: 150px;
+  margin-bottom: 100px;
 }
 
 /* Contenedor del formulario con efecto glass */
 .contact-form {
   width: 100%;
-  max-width: 480px;
+  max-width: 500px;
+  margin: 0 auto;
   background: rgba(255, 255, 255, 0.05); /* semi-transparente sobre fondo */
   padding: 2rem;
   border-radius: 12px;
@@ -1658,13 +1962,14 @@ ul {
   backdrop-filter: blur(6px); /* efecto glass */
 }
 
-/* Título del formulario */
 .contact-form h2 {
-  margin-bottom: 1.5rem;
-  text-align: center;
-  font-size: 1.6rem;
-  color: #3b82f6; /* azul eléctrico */
+  margin-bottom: 1rem;           /* menos espacio debajo del título */
+  font-size: 1.4rem;             /* un poco más compacto */
 }
+
+
+
+
 
 
 

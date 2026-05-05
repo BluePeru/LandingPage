@@ -1,15 +1,14 @@
-import Link from "next/link";
+"use client";
 
-
-export default function Whoarewe() {
+export default function WhoarewePage() {
   return (  
     <section className="section section-whoarewe" id="whoarewe">
     <div className="section-inner">
-      <span className="section-label reveal" data-delay="0">NOSOTROS</span>
-      <h2 className="section-heading reveal" data-delay="1">
+      <span className="section-label" data-delay="0">NOSOTROS</span>
+      <h2 className="section-heading" data-delay="1">
         Conoce a <span className="serif-accent">Blue</span>
       </h2>
-      <p className="section-description reveal" data-delay="2">
+      <p className="section-description" data-delay="2">
         Somos un equipo de desarrolladores apasionado por la innovación y la seguridad digital, 
         <br />
         <br />
