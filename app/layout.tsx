@@ -30,12 +30,13 @@ export default function RootLayout({
     
   return (
      <html lang="en" className="h-full antialiased">
-      <body className="flex flex-col min-h-screen">
-        <Navbar />
-        <ClientWrapper>
-          <main className="flex-1 pt-20 pb-20">{children}</main>
-        </ClientWrapper>
-        <Footer />
+      <body>
+          
+          <ClientWrapper>
+            <Navbar />
+            <main>{children}</main>
+            <Footer />
+          </ClientWrapper>
       </body>
     </html>
   );
