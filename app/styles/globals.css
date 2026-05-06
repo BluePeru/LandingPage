@@ -1,4 +1,4 @@
-/* === BLUE LANDING PAGE - CINEMATIC === */
+
 *,
 *::before,
 *::after {
@@ -10,7 +10,7 @@
 .loader-screen {
   position: fixed;
   inset: 0;
-  background: transparent; /* o tu color base */
+  background: transparent; 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -88,7 +88,7 @@ ul {
   list-style: none
 }
 
-/* --- Utilities --- */
+
 .liquid-glass {
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(16px);
@@ -139,7 +139,6 @@ ul {
   color: #FF7A00
 }
 
-/* ==================== NAVBAR ==================== */
 .navbar {
   
   position: fixed;
@@ -238,7 +237,6 @@ ul {
   transition: transform .3s, opacity .3s
 }
 
-/* ==================== HERO ==================== */
 .hero {
   position: relative;
   min-height: 100svh;
@@ -447,7 +445,6 @@ ul {
   pointer-events: none
 }
 
-/* FLOATING HEXAGONS (for intermediate sections) */
 .floating-hexagons {
   position: absolute;
   inset: 0;
@@ -569,7 +566,6 @@ ul {
   opacity: 0.7
 }
 
-/* ==================== AURORA & BACKGROUND FX ==================== */
 .aurora {
   position: absolute;
   width: 400px;
@@ -593,7 +589,6 @@ ul {
   background: #5BC0F8
 }
 
-/* ==================== SECTIONS COMMON ==================== */
 .section {
   position: relative;
   padding: 80px 48px;
@@ -637,12 +632,11 @@ ul {
   line-height: 1.6
 }
 
-/* ==================== HOW IT WORKS ==================== */
 
 .section-how {
   position: relative;
   z-index: 10;
-    min-height: 75vh;          /* ocupa casi toda la pantalla */
+    min-height: 75vh;    
 }
 
 .how-grid {
@@ -728,7 +722,6 @@ ul {
   line-height: 1.7
 }
 
-/* ==================== MISSION ==================== */
 .section-mission {
   padding: 100px 48px
 }
@@ -771,7 +764,6 @@ ul {
   margin-bottom: 20px
 }
 
-/* ==================== APP PREVIEW & PLANET ==================== */
 .section-app {
   padding-bottom: 0;
   overflow: hidden
@@ -896,7 +888,6 @@ ul {
   overflow: hidden
 }
 
-/* Puzzle Pieces */
 .planet-puzzle {
   position: absolute;
   width: 1200px;
@@ -1045,9 +1036,6 @@ ul {
   background: linear-gradient(to top, #030712, transparent);
   z-index: 5
 }
-/* ==================== USE CASES ==================== */
-
-/* ===== USE CASES ===== */
 
 .usecases-grid {
   display: grid;
@@ -1104,11 +1092,10 @@ ul {
   line-height: 1.65;
 }
 
-/* ==================== FEATURES ==================== */
 .section-features {
   position: relative;
   z-index: 10;
-    min-height: 75vh;          /* ocupa casi toda la pantalla */
+    min-height: 75vh; 
 }
 
 .features-grid {
@@ -1174,10 +1161,6 @@ ul {
   color: #5BC0F8;
 }
 
-
-
-
-/* ==================== TESTIMONIALS ==================== */
 .section-description {
   max-width: 680px;
   margin: -18px auto 46px;
@@ -1255,8 +1238,6 @@ ul {
   margin: 0;
 }
 
-
-/* ==================== CTA & EVIL EYE ==================== */
 .section-cta {
   padding: 100px 48px 120px
 }
@@ -1302,7 +1283,6 @@ ul {
   margin-bottom: 40px
 }
 
-/* EVIL EYE (Reused & adapted for dark bg) */
 .evil-eye-container {
   position: relative;
   width: 280px;
@@ -1547,9 +1527,6 @@ ul {
   transform: translateY(-1px)
 }
 
-
-
-/* ==================== FOOTER ==================== */
 .footer {
   background: #030712;
   color: #e5e7eb;
@@ -1619,7 +1596,6 @@ ul {
   transform: translateX(4px);
 }
 
-/* ==================== RESPONSIVE ==================== */
 @media(max-width:1250px){
   
   .usecases-grid {
@@ -1916,14 +1892,14 @@ ul {
   display: flex;
   flex-direction: row;
   gap: 16px;
-  overflow-x: auto;             /* scroll horizontal */
+  overflow-x: auto;    
   overflow-y: hidden;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   width: 100%;
-  padding: 0 20px;              /* espacio lateral */
-  scroll-padding-left: 20px;    /* asegura que el primero no se corte */
-  justify-content: flex-start;  /* empieza desde la izquierda */
+  padding: 0 20px;       
+  scroll-padding-left: 20px; 
+  justify-content: flex-start;  
 }
 
 .app-phones::-webkit-scrollbar {
@@ -1934,7 +1910,7 @@ ul {
   flex-shrink: 0;
   width: 260px;
   height: 500px;
-  scroll-snap-align: start;     /* cada teléfono se alinea desde el inicio */
+  scroll-snap-align: start;
 }
 
 .phone-frame,
@@ -1944,7 +1920,7 @@ ul {
   border-width: 3px;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
 }
- /* Scale planet more for mobile */
+
   .planet-wrapper {
     width: 100%;
     margin-top: 20px;
@@ -2125,7 +2101,7 @@ ul {
 
     .steps-grid {
     grid-template-columns: 1fr;
-    margin: 0 20px; /* margen más pequeño para que no se corte */
+    margin: 0 20px; 
   }
     .testimonials-grid {
     grid-template-columns: repeat(2, 1fr)
@@ -2224,14 +2200,14 @@ ul {
   display: flex;
   flex-direction: row;
   gap: 16px;
-  overflow-x: auto;             /* scroll horizontal */
+  overflow-x: auto;   
   overflow-y: hidden;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   width: 100%;
-  padding: 0 20px;              /* espacio lateral */
-  scroll-padding-left: 20px;    /* asegura que el primero no se corte */
-  justify-content: flex-start;  /* empieza desde la izquierda */
+  padding: 0 20px;        
+  scroll-padding-left: 20px;  
+  justify-content: flex-start; 
 }
 
 .app-phones::-webkit-scrollbar {
@@ -2242,7 +2218,7 @@ ul {
   flex-shrink: 0;
   width: 260px;
   height: 500px;
-  scroll-snap-align: start;     /* cada teléfono se alinea desde el inicio */
+  scroll-snap-align: start; 
 }
 
 .phone-frame,
@@ -2254,7 +2230,7 @@ ul {
 }
 
 
-  /* Scale planet more for mobile */
+
   .planet-wrapper {
     width: 100%;
     margin-top: 20px;
@@ -2275,7 +2251,7 @@ ul {
   
 }
 
-/* Sección de contacto: ocupa casi toda la pantalla y centra el contenido */
+
 .contact-section {
   min-height: 100vh;
   display: flex;
@@ -2332,7 +2308,6 @@ ul {
 }
 
 
-/* ==================== TÉRMINOS Y CONDICIONES ==================== */
 
 .tyc-section,
 .codeofconduct-section,
@@ -2386,13 +2361,13 @@ ul {
 .definedterms-subtitle {
   font-size: 1.2rem;
   font-weight: 700;
-  color: #3b82f6; /* azul Blue */
+  color: #3b82f6;
   margin-top: 40px;
   margin-bottom: 15px;
   position: relative;
 }
 
-/* línea sutil debajo */
+
 .tyc-subtitle::after,
 .codeofconduct-subtitle::after,
 .disclosurepolicy-subtitle::after,
@@ -2434,7 +2409,7 @@ ul {
   color: #9ca3af;
 }
 
-/* resaltar negritas */
+
 .tyc-list strong,
 .codeofconduct-list strong,
 .disclosurepolicy-list strong,
@@ -2458,6 +2433,7 @@ ul {
 .definedterms-content:hover {
   transform: translateY(-2px);
 }
+
 
 .textbold {
   color: black;
