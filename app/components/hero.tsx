@@ -4,7 +4,13 @@ import Link from "next/link";
 export default function Hero() {
   return (  
     <section className="hero" id="hero">
-    <video className="hero-video" autoPlay loop muted playsInline>
+    <video className="hero-video" autoPlay
+  muted
+  loop
+  playsInline
+  preload="auto"
+  aria-hidden="true"
+  tabIndex={-1}>
       <source src="assets/videopresentacion.mp4" type="video/mp4" />
     </video>
     <div className="hero-overlay"></div>
