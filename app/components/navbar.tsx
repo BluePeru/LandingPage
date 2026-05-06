@@ -47,8 +47,6 @@ export default function Navbar() {
         <li className="nav-dot">·</li>
         <li><Link href="/usecases" className="nav-link">Casos de Uso</Link></li>
         <li className="nav-dot">·</li>
-        <li><Link href="/whoarewe" className="nav-link">¿Quiénes Somos?</Link></li>
-        <li className="nav-dot">·</li>
         <li><Link href="/testimonials" className="nav-link">Testimonios</Link></li>
       </ul>
 

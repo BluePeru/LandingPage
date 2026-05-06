@@ -33,7 +33,6 @@ export default function ClientWrapper({ children }: { children: React.ReactNode 
     <div className={fade ? "fade-in" : ""}>
       <Navbar />
       {children}
-      <Footer />
     </div>
   );
 }

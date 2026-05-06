@@ -1,44 +1,64 @@
 "use client";
+
 export default function TestimonialsPage() {
-  const data = [
-    { nombre: "Juan P.", frase: "Me siento más seguro usando la app." },
-    { nombre: "María L.", frase: "La interfaz es clara y fácil de entender." },
-    { nombre: "Carlos R.", frase: "Ahora puedo monitorear todo en tiempo real." },
-    { nombre: "Sofía M.", frase: "Es rápido y confiable, justo lo que necesitaba." },
+  const testimonials = [
+    {
+      nombre: "Juan P.",
+      rol: "Usuario en Lima",
+      frase: "Me siento más seguro usando la aplicación cuando regreso tarde a casa.",
+    },
+    {
+      nombre: "María L.",
+      rol: "Vecina de la comunidad",
+      frase: "La interfaz es clara, rápida y fácil de entender desde el primer uso.",
+    },
+    {
+      nombre: "Carlos R.",
+      rol: "Usuario frecuente",
+      frase: "Ahora puedo revisar reportes cercanos y estar más atento a mi entorno.",
+    },
+    {
+      nombre: "Sofía M.",
+      rol: "Usuaria de Blue",
+      frase: "Es una herramienta práctica para compartir alertas de forma responsable.",
+    },
   ];
 
   return (
     <section className="section section-testimonials" id="testimonials">
+      <div className="section-inner">
+        <span className="section-label">TESTIMONIOS</span>
 
-    <div className="section-inner">
-      <span className="section-label" data-delay="0">TESTIMONIOS</span>
-      <h2 className="section-heading" data-delay="1">
-        Personas que ya probaron la app
-      </h2>
-      <div className="testimonials-grid">
-        <div className="testimonials-card liquid-glass" data-delay="0">
-          <div className="feature-icon">⭐⭐⭐⭐⭐</div>
-          <h3 className="testimonials-title">Juan P.</h3>
-          <p className="feature-desc">Me siento más seguro usando la aplicación.</p>
-        </div>
-        <div className="testimonials-card liquid-glass" data-delay="1">
-          <div className="testimonials-icon">⭐⭐⭐⭐⭐</div>
-          <h3 className="testimonials-title">María L.</h3>
-          <p className="testimonials-desc">La interfaz es clara y fácil de entender.</p>
-        </div>
-        <div className="testimonials-card liquid-glass" data-delay="2">
-          <div className="testimonials-icon">⭐⭐⭐⭐⭐</div>
-          <h3 className="testimonials-title">Carlos R.</h3>
-          <p className="testimonials-desc">Ahora puedo monitorear todo en tiempo real.</p>
-        </div>
-        <div className="testimonials-card liquid-glass" data-delay="3">
-          <div className="testimonials-icon">⭐⭐⭐⭐⭐</div>
-          <h3 className="testimonials-title">Sofía M.</h3>
-          <p className="testimonials-desc">Es rápido y confiable, justo lo que necesitaba.</p>
+        <h2 className="section-heading">
+          Personas que ya confían en <span className="serif-accent">Blue</span>
+        </h2>
+
+        <p className="section-description">
+          Opiniones de usuarios que probaron la app y valoran una forma más rápida,
+          colaborativa y responsable de mantenerse informados.
+        </p>
+
+        <div className="testimonials-grid">
+          {testimonials.map((item, index) => (
+            <article className="testimonials-card liquid-glass" key={index}>
+              <div className="testimonials-stars">★★★★★</div>
+
+              <p className="testimonials-quote">“{item.frase}”</p>
+
+              <div className="testimonials-user">
+                <div className="testimonials-avatar">
+                  {item.nombre.charAt(0)}
+                </div>
+
+                <div>
+                  <h3 className="testimonials-title">{item.nombre}</h3>
+                  <p className="testimonials-role">{item.rol}</p>
+                </div>
+              </div>
+            </article>
+          ))}
         </div>
       </div>
-    </div>
-  </section>
-
+    </section>
   );
 }
