@@ -1852,16 +1852,14 @@ ul {
     display: none
   }
 
-  .hero {
-    min-height: 100svh;
-    padding: 96px 18px 64px;
-    justify-content: center;
+ .hero-video {
+    display: none;
   }
 
-  .hero-video {
-    object-fit: cover;
-    object-position: center;
-    opacity: 0.42;
+  .hero {
+    background:
+      linear-gradient(rgba(3, 7, 18, 0.55), rgba(3, 7, 18, 0.95)),
+      url("/images/hero-mobile.jpg") center/cover no-repeat;
   }
 
   .hero-content {
