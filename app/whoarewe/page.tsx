@@ -92,10 +92,10 @@ export default function WhoarewePage() {
         </p>
 
         <ul className="whoarewe-list">
-          <li>Soporte técnico: <strong style={{color:'#3677FF'}}>soporte@blue.com</strong></li>
-          <li>Reclamos y denuncias sobre Reportes: <strong style={{color:'#3677FF'}}>reclamos@blue.com</strong></li>
-          <li>Ejercicio de derechos ARCOP: <strong style={{color:'#3677FF'}}>derechosarco@blue.com</strong></li>
-          <li>Asuntos corporativos: <strong style={{color:'#3677FF'}}>contacto@blue.com</strong></li>
+          <li>Soporte técnico: <strong style={{color:'#3677FF'}}>soporte@b1peru.com</strong></li>
+          <li>Reclamos y denuncias sobre Reportes: <strong style={{color:'#3677FF'}}>reclamos@b1peru.com</strong></li>
+          <li>Ejercicio de derechos ARCOP: <strong style={{color:'#3677FF'}}>derechosarco@b1peru.com</strong></li>
+          <li>Asuntos corporativos: <strong style={{color:'#3677FF'}}>contacto@b1peru.com</strong></li>
         </ul>
 
         <h3 className="whoarewe-subtitle">IX. VIGENCIA Y ACTUALIZACIÓN</h3>

@@ -7,7 +7,7 @@ export default function CodeOfConductPage() {
       <h2>Código de Conducta</h2>
 
       <div className="codeofconduct-content">
-        <p className="codeofconduct-brand">Blue</p>
+        <h2 className="codeofconduct-brand">Blue</h2>
 
         <h3 className="codeofconduct-subtitle">I. FUNDAMENTO Y ÁMBITO DE APLICACIÓN</h3>
 
@@ -147,17 +147,17 @@ export default function CodeOfConductPage() {
         <h3 className="codeofconduct-subtitle">V. PROCEDIMIENTO SANCIONADOR</h3>
 
         <ol className="codeofconduct-list">
-          <li><strong style={{color:'#3677FF'}}>Inicio del procedimiento:</strong> Blue podrá iniciar de oficio o a solicitud de cualquier usuario, mediante el correo soporte@blue.com, la verificación de una presunta infracción.</li>
+          <li><strong style={{color:'#3677FF'}}>Inicio del procedimiento:</strong> Blue podrá iniciar de oficio o a solicitud de cualquier usuario, mediante el correo soporte@b1peru.com, la verificación de una presunta infracción.</li>
           <li><strong style={{color:'#3677FF'}}>Notificación y descargos:</strong> El usuario será notificado a su correo electrónico registrado y tendrá un plazo de 5 días hábiles para presentar sus descargos.</li>
           <li><strong style={{color:'#3677FF'}}>Resolución:</strong> Blue emitirá una resolución motivada dentro de los 15 días hábiles siguientes a la recepción de los descargos o al vencimiento del plazo.</li>
-          <li><strong style={{color:'#3677FF'}}>Recurso de impugnación:</strong> El usuario podrá impugnar la sanción ante soporte@blue.com dentro de los 5 días hábiles siguientes a la notificación.</li>
+          <li><strong style={{color:'#3677FF'}}>Recurso de impugnación:</strong> El usuario podrá impugnar la sanción ante soporte@b1peru.com dentro de los 5 días hábiles siguientes a la notificación.</li>
         </ol>
 
         <h3 className="codeofconduct-subtitle">VI. DEBER DE REPORTAR CONDUCTAS INFRACTORAS</h3>
 
         <p className="codeofconduct-text">
           Los usuarios que tengan conocimiento de una posible infracción deberán reportarlo a través del correo
-          soporte@blue.com con el asunto “Reporte de Usuario”, o mediante la funcionalidad de denuncia habilitada
+          soporte@b1peru.com con el asunto “Reporte de Usuario”, o mediante la funcionalidad de denuncia habilitada
           dentro de la Aplicación.
         </p>
 

@@ -5,6 +5,7 @@ import { Box, Button, TextField, Typography } from "@mui/material";
 import { useRouter } from "next/navigation";
 import { sendEmailOtp, verifyEmailOtp } from "../lib/otpAuth";
 import { saveSession } from "../lib/sessionStorage";
+import { toast } from "sonner";
 
 type EmailOtpAuthFormProps = {
   mode?: "login" | "register";
@@ -22,7 +23,7 @@ export default function EmailOtpAuthForm({ mode = "login" }: EmailOtpAuthFormPro
 
   const handleSendCode = async () => {
     if (!email.trim()) {
-      alert("Ingresa tu correo");
+      toast.info("Ingresa tu correo");
       return;
     }
 
@@ -30,11 +31,11 @@ export default function EmailOtpAuthForm({ mode = "login" }: EmailOtpAuthFormPro
 
     try {
       await sendEmailOtp(email.trim());
-      alert("Te enviamos un código a tu correo.");
+      toast.info("Te enviamos un código a tu correo.");
       setStep("code");
     } catch (error) {
       console.error(error);
-      alert("No se pudo enviar el código.");
+      toast.error("No se pudo enviar el código.");
     } finally {
       setLoading(false);
     }
@@ -42,7 +43,7 @@ export default function EmailOtpAuthForm({ mode = "login" }: EmailOtpAuthFormPro
 
   const handleVerifyCode = async () => {
     if (!token.trim()) {
-      alert("Ingresa el código");
+      toast.info("Ingresa el código");
       return;
     }
 
@@ -55,11 +56,11 @@ export default function EmailOtpAuthForm({ mode = "login" }: EmailOtpAuthFormPro
         saveSession(session);
       }
 
-      alert(isRegister ? "Cuenta creada correctamente" : "Sesión iniciada correctamente");
+      toast.success(isRegister ? "Cuenta creada correctamente" : "Sesión iniciada correctamente");
       router.push("/");
     } catch (error) {
       console.error(error);
-      alert("Código inválido o expirado.");
+      toast.error("Código inválido o expirado.");
     } finally {
       setLoading(false);
     }

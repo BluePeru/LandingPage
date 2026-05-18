@@ -5,6 +5,7 @@ import ClientWrapper from "./components/ClientWrapper";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 import AuthListener from "./components/authlistener";
+import {Toaster } from "sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,8 +34,12 @@ export default function RootLayout({
   return (
      <html lang="en" className="h-full antialiased">
       <body>
-          
+          <Toaster
+  richColors
+  position="top-right"
+/>
           <ClientWrapper>
+            
             <AuthListener />
             <Navbar />
             <main>{children}</main>

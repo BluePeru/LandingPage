@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { saveSession } from "../lib/sessionStorage";
 import { sendAccessCode, verifyAccessCode } from "../lib/passwordOtpAuth";
+import { toast } from "sonner";
 
 export default function LoginForm() {
   const router = useRouter();
@@ -29,7 +30,7 @@ export default function LoginForm() {
 
   const handleSendCode = async () => {
     if (!email.trim()) {
-      alert("Ingresa tu correo");
+      toast.info("Ingresa tu correo");
       return;
     }
 
@@ -38,7 +39,7 @@ export default function LoginForm() {
     try {
       await sendAccessCode(email.trim());
 
-      alert("Te enviamos un código a tu correo.");
+      toast.info("Te enviamos un código a tu correo.");
       setStep("code");
       setCooldown(60);
     } catch (error: unknown) {
@@ -47,9 +48,9 @@ export default function LoginForm() {
       const message = error instanceof Error ? error.message : "";
 
       if (message.includes("rate limit")) {
-        alert("Has solicitado muchos códigos. Espera unos minutos e inténtalo otra vez.");
+        toast.warning("Has solicitado muchos códigos. Espera unos minutos e inténtalo otra vez.");
       } else {
-        alert("No se pudo enviar el código.");
+        toast.error("No se pudo enviar el código.");
       }
     } finally {
       setLoading(false);
@@ -58,7 +59,7 @@ export default function LoginForm() {
 
   const handleVerifyCode = async () => {
     if (!code.trim()) {
-      alert("Ingresa el código");
+      toast.info("Ingresa el código");
       return;
     }
 
@@ -71,11 +72,11 @@ export default function LoginForm() {
         saveSession(session);
       }
 
-      alert("Sesión iniciada correctamente ✅");
-      router.push("/");
+      toast.success("Sesión iniciada correctamente");
+      router.push("/testimonials");
     } catch (error) {
       console.error(error);
-      alert("Código inválido o expirado.");
+      toast.error("Código inválido o expirado.");
     } finally {
       setLoading(false);
     }
@@ -83,7 +84,7 @@ export default function LoginForm() {
 
   const handleResendCode = async () => {
     if (!email.trim()) {
-      alert("Ingresa un correo válido");
+      toast.info("Ingresa un correo válido");
       return;
     }
 
@@ -94,7 +95,7 @@ export default function LoginForm() {
     try {
       await sendAccessCode(email.trim());
 
-      alert("Te enviamos un nuevo código ✨");
+      toast.info("Te enviamos un nuevo código");
       setCooldown(60);
     } catch (error: unknown) {
       console.error(error);
@@ -102,9 +103,9 @@ export default function LoginForm() {
       const message = error instanceof Error ? error.message : "";
 
       if (message.includes("rate limit")) {
-        alert("Espera unos minutos antes de pedir otro código.");
+        toast.warning("Espera unos minutos antes de pedir otro código.");
       } else {
-        alert("No se pudo reenviar el código.");
+        toast.error("No se pudo reenviar el código.");
       }
     } finally {
       setResending(false);

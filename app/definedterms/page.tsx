@@ -156,7 +156,7 @@ export default function DefinedTermsPage() {
         <h4 className="definedterms-heading">Derechos ARCOP</h4>
         <p className="definedterms-text">
           Derechos de Acceso, Rectificación, Cancelación, Oposición y Portabilidad reconocidos por la Ley Nro. 29733.
-          El Usuario puede ejercerlos mediante solicitud dirigida a derechosarco@blue.com.
+          El Usuario puede ejercerlos mediante solicitud dirigida a derechosarco@b1peru.com.
         </p>
 
         <h4 className="definedterms-heading">Consentimiento expreso</h4>

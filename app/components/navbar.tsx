@@ -55,14 +55,14 @@ const handleLogout = async () => {
 
   return (
     <nav className="navbar" id="main-nav">
-      <a href="/home" className="nav-logo">
-      <svg width="26" height="26" viewBox="0 0 28 28" fill="none">
-        <circle cx="14" cy="14" r="12" stroke="rgba(255,255,255,0.5)" strokeWidth="2" fill="none" />
-        <circle cx="14" cy="14" r="6" stroke="rgba(255,255,255,0.5)" strokeWidth="1.5" fill="none" />
-        <circle cx="14" cy="14" r="2.5" fill="#fff" />
-      </svg>
-      Blue
-    </a>
+      <Link href="/" className="navbar-logo">
+  <img
+    src="/assets/logonav.png"
+    alt="Blue Logo"
+    className="navbar-logo-image"
+  />
+
+</Link>
 
       {/* Hamburguesa controlada por estado */}
       <button

@@ -319,7 +319,7 @@ export default function TermsAndConditionsPage() {
     <p className="tyc-text">
       El Usuario podrá ejercer sus derechos de acceso, rectificación, cancelación,
       oposición y portabilidad enviando una solicitud a
-      <strong style={{color:'#3677FF'}}> derechosarco@blue.com</strong>.
+      <strong style={{color:'#3677FF'}}> derechosarco@b1peru.com</strong>.
     </p>
 
     <h3 className="tyc-subtitle">XII. COMUNICACIONES OFICIALES</h3>
@@ -338,10 +338,10 @@ export default function TermsAndConditionsPage() {
     <p className="tyc-text">Los canales oficiales de atención son:</p>
 
     <ol type="a" className="tyc-list">
-      <li>Soporte técnico: <strong style={{color:'#3677FF'}}>soporte@blue.com</strong></li>
-      <li>Reclamos: <strong style={{color:'#3677FF'}}>reclamos@blue.com</strong></li>
-      <li>Atención a Derechos Arcop: <strong style={{color:'#3677FF'}}>derechosarco@blue.com</strong></li>
-      <li>Asuntos corporativos: <strong style={{color:'#3677FF'}}>contacto@blue.com</strong></li>
+      <li>Soporte técnico: <strong style={{color:'#3677FF'}}>soporte@b1peru.com</strong></li>
+      <li>Reclamos: <strong style={{color:'#3677FF'}}>reclamos@b1peru.com</strong></li>
+      <li>Atención a Derechos Arcop: <strong style={{color:'#3677FF'}}>derechosarco@b1peru.com</strong></li>
+      <li>Asuntos corporativos: <strong style={{color:'#3677FF'}}>contacto@b1peru.com</strong></li>
     </ol>
 
     <h3 className="tyc-subtitle">XIII. MODIFICACIONES A LOS TÉRMINOS</h3>
@@ -372,7 +372,7 @@ export default function TermsAndConditionsPage() {
 
     <p className="tyc-text">
       XIV.3. El Usuario podrá solicitar la recuperación de una cuenta suspendida dentro
-      de los 30 días siguientes mediante comunicación a <strong style={{color:'#3677FF'}}>soporte@blue.com</strong>.
+      de los 30 días siguientes mediante comunicación a <strong style={{color:'#3677FF'}}>soporte@b1peru.com</strong>.
     </p>
 
     <h3 className="tyc-subtitle">XV. ENLACES A SITIOS EXTERNOS</h3>
@@ -397,7 +397,7 @@ export default function TermsAndConditionsPage() {
     <p className="tyc-text">
       XVII.1. Para presentar quejas, reclamos o denuncias sobre el funcionamiento de la
       Aplicación, el contenido de Reportes que vulneren estos Términos o la conducta de
-      otros Usuarios, se deberá utilizar el correo <strong style={{color:'#3677FF'}}>reclamos@blue.com</strong>.
+      otros Usuarios, se deberá utilizar el correo <strong style={{color:'#3677FF'}}>reclamos@b1peru.com</strong>.
     </p>
 
     <h3 className="tyc-subtitle">XVIII. DISPOSICIONES FINALES</h3>

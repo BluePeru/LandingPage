@@ -1,19 +1,14 @@
 "use client";
 
 import { supabase } from "../lib/supabaseClient";
-import {
-  TextField,
-  Button,
-  Box,
-  Typography,
-  Drawer,
-} from "@mui/material";
+import { TextField, Button, Box, Typography, Drawer } from "@mui/material";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import { useForm } from "react-hook-form";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { clearSavedSession } from "../lib/sessionStorage";
+import { toast } from "sonner";
 
 const theme = createTheme({
   palette: {
@@ -30,8 +25,10 @@ type FeedbackFormData = {
 
 type Feedback = {
   id: string;
+  user_id: string;
   comment: string;
   created_at: string;
+  updated_at: string | null;
   likes: number;
 };
 
@@ -40,6 +37,7 @@ export default function TestimonialsPage() {
     register,
     handleSubmit,
     reset,
+    setValue,
     formState: { errors },
   } = useForm<FeedbackFormData>();
 
@@ -48,16 +46,23 @@ export default function TestimonialsPage() {
   const [feedbacks, setFeedbacks] = useState<Feedback[]>([]);
   const [openAuthDrawer, setOpenAuthDrawer] = useState(false);
   const [userEmail, setUserEmail] = useState<string | null>(null);
+  const [currentUserId, setCurrentUserId] = useState<string | null>(null);
+  const [editingFeedbackId, setEditingFeedbackId] = useState<string | null>(null);
+  const [showDisclaimer, setShowDisclaimer] = useState(false);
 
   const fetchFeedbacks = async () => {
     const { data, error } = await supabase
       .from("feedback")
       .select(`
         id,
+        user_id,
         comment,
         created_at,
+        updated_at,
         feedback_likes(count)
-      `);
+      `)
+      .is("deleted_at", null)
+      .order("created_at", { ascending: false });
 
     if (error) {
       console.error("Error al cargar feedbacks:", error.message);
@@ -66,79 +71,172 @@ export default function TestimonialsPage() {
 
     type RawFeedback = {
       id: string;
+      user_id: string;
       comment: string;
       created_at: string;
+      updated_at: string | null;
       feedback_likes: { count: number }[];
     };
 
     const mapped: Feedback[] = (data as RawFeedback[]).map((fb) => ({
       id: fb.id,
+      user_id: fb.user_id,
       comment: fb.comment,
       created_at: fb.created_at,
+      updated_at: fb.updated_at,
       likes: fb.feedback_likes[0]?.count || 0,
     }));
 
     setFeedbacks(mapped);
   };
+  
+
+  useEffect(() => {
+    const feedbackTimer = setTimeout(() => {
+      fetchFeedbacks();
+    }, 0);
+
+    
+
+    const userTimer = setTimeout(() => {
+      const loadUser = async () => {
+        const {
+          data: { user },
+        } = await supabase.auth.getUser();
+
+        setUserEmail(user?.email ?? null);
+        setCurrentUserId(user?.id ?? null);
+      };
+
+      loadUser();
+    }, 0);
+
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUserEmail(session?.user?.email ?? null);
+      setCurrentUserId(session?.user?.id ?? null);
+    });
+
+    return () => {
+      clearTimeout(feedbackTimer);
+      clearTimeout(userTimer);
+      subscription.unsubscribe();
+    };
+  }, []);
 
   useEffect(() => {
   const timer = setTimeout(() => {
-    fetchFeedbacks();
+    const disclaimerSeen = sessionStorage.getItem("blueDisclaimerSeen");
+
+    if (!disclaimerSeen) {
+      setShowDisclaimer(true);
+    }
   }, 0);
 
-  const loadUserTimer = setTimeout(() => {
-    const loadUser = async () => {
-      const {
-        data: { user },
-      } = await supabase.auth.getUser();
-
-      setUserEmail(user?.email ?? null);
-    };
-
-    loadUser();
-  }, 0);
-
-  const {
-    data: { subscription },
-  } = supabase.auth.onAuthStateChange((_event, session) => {
-    setUserEmail(session?.user?.email ?? null);
-  });
-
-  return () => {
-    clearTimeout(timer);
-    clearTimeout(loadUserTimer);
-    subscription.unsubscribe();
-  };
+  return () => clearTimeout(timer);
 }, []);
+
+  const userActiveFeedback = feedbacks.find(
+    (fb) => fb.user_id === currentUserId
+  );
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
     clearSavedSession();
     setUserEmail(null);
+    setCurrentUserId(null);
     setOpenAuthDrawer(false);
+    reset();
+    setEditingFeedbackId(null);
   };
 
   const handleLike = async (id: string) => {
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
 
-    if (!user) {
-      setOpenAuthDrawer(true);
+  if (!user) {
+    setOpenAuthDrawer(true);
+    return;
+  }
+
+  const { data: existingLike } = await supabase
+    .from("feedback_likes")
+    .select("id")
+    .eq("feedback_id", id)
+    .eq("user_id", user.id)
+    .maybeSingle();
+
+  if (existingLike) {
+    const { error } = await supabase
+      .from("feedback_likes")
+      .delete()
+      .eq("id", existingLike.id);
+
+    if (error) {
+      toast.error("No se pudo quitar el me gusta.");
+      console.error(error.message);
       return;
     }
-
+  } else {
     const { error } = await supabase.from("feedback_likes").insert({
       feedback_id: id,
       user_id: user.id,
     });
 
     if (error) {
-      console.error("Error al dar like:", error.message);
-    } else {
-      fetchFeedbacks();
+      toast.error("No se pudo dar me gusta.");
+      console.error(error.message);
+      return;
     }
+  }
+
+  fetchFeedbacks();
+};
+
+  const handleEdit = (fb: Feedback) => {
+    setEditingFeedbackId(fb.id);
+    setValue("mensaje", fb.comment);
   };
+
+  const handleCancelEdit = () => {
+    setEditingFeedbackId(null);
+    reset();
+  };
+
+  const handleDelete = async (id: string) => {
+    const confirmDelete = confirm("¿Quieres eliminar tu testimonio?");
+    if (!confirmDelete) return;
+
+    const { error } = await supabase
+      .from("feedback")
+      .update({
+        deleted_at: new Date().toISOString(),
+        updated_at: new Date().toISOString(),
+      })
+      .eq("id", id);
+
+    if (error) {
+      toast.error("No se pudo eliminar el comentario.");
+      console.error(error.message);
+      return;
+    }
+
+    toast.success("Comentario eliminado.");
+    reset();
+    setEditingFeedbackId(null);
+    fetchFeedbacks();
+  };
+
+  const handleCloseDisclaimer = () => {
+  sessionStorage.setItem(
+    "blueDisclaimerSeen",
+    "true"
+  );
+
+  setShowDisclaimer(false);
+};
 
   const onSubmit = async (data: FeedbackFormData) => {
     setLoading(true);
@@ -153,18 +251,46 @@ export default function TestimonialsPage() {
         return;
       }
 
+      if (editingFeedbackId) {
+        const { error } = await supabase
+          .from("feedback")
+          .update({
+            comment: data.mensaje,
+            updated_at: new Date().toISOString(),
+          })
+          .eq("id", editingFeedbackId);
+
+        if (error) {
+          toast.error("No se pudo actualizar el feedback.");
+          return;
+        }
+
+        toast.success("Tu testimonio fue actualizado.");
+        reset();
+        setEditingFeedbackId(null);
+        fetchFeedbacks();
+        return;
+      }
+
+      if (userActiveFeedback) {
+        toast.info("Ya tienes un testimonio activo. Puedes editarlo o eliminarlo.");
+        handleEdit(userActiveFeedback);
+        return;
+      }
+
       const { error } = await supabase.from("feedback").insert([
         {
           user_id: user.id,
           comment: data.mensaje,
-          created_at: new Date(),
+          created_at: new Date().toISOString(),
+          updated_at: new Date().toISOString(),
         },
       ]);
 
       if (error) {
-        alert("Error al enviar el feedback. Inténtalo de nuevo.");
+        toast.error("Error al enviar el feedback. Inténtalo de nuevo.");
       } else {
-        alert("¡Gracias por tu feedback!");
+        toast.success("¡Gracias por tu feedback!");
         reset();
         fetchFeedbacks();
       }
@@ -196,31 +322,63 @@ export default function TestimonialsPage() {
             </div>
 
             <div className="comments-container">
-              {feedbacks.slice(0, visibleCount).map((fb) => (
-                <article key={fb.id} className="comment-card">
-                  <div className="comment-avatar">
-                    {fb.comment.charAt(0).toUpperCase()}
-                  </div>
+              {feedbacks.slice(0, visibleCount).map((fb) => {
+                const isOwner = fb.user_id === currentUserId;
 
-                  <div className="comment-content">
-                    <div className="comment-top">
-                      <h4>Usuario Blue</h4>
-                      <span>{new Date(fb.created_at).toLocaleDateString()}</span>
+                return (
+                  <article key={fb.id} className="comment-card">
+                    <div className="comment-avatar">B</div>
+
+                    <div className="comment-content">
+                      <div className="comment-top">
+                        <div>
+                          <h4>Usuario de Blue</h4>
+                          {isOwner && (
+                            <span className="comment-owner-badge">
+                              Tu comentario
+                            </span>
+                          )}
+                        </div>
+
+                        <span>
+                          {new Date(fb.created_at).toLocaleDateString()}
+                        </span>
+                      </div>
+
+                      <p>{fb.comment}</p>
+
+                      <div className="comment-actions-row">
+                        <button
+                          type="button"
+                          className="comment-like"
+                          onClick={() => handleLike(fb.id)}
+                        >
+                          <ThumbUpIcon fontSize="small" />
+                          <span>{fb.likes} Me gusta</span>
+                        </button>
+
+                        {isOwner && (
+                          <div className="comment-owner-actions">
+                            <button
+                              type="button"
+                              onClick={() => handleEdit(fb)}
+                            >
+                              Editar
+                            </button>
+
+                            <button
+                              type="button"
+                              onClick={() => handleDelete(fb.id)}
+                            >
+                              Eliminar
+                            </button>
+                          </div>
+                        )}
+                      </div>
                     </div>
-
-                    <p>{fb.comment}</p>
-
-                    <button
-                      type="button"
-                      className="comment-like"
-                      onClick={() => handleLike(fb.id)}
-                    >
-                      <ThumbUpIcon fontSize="small" />
-                      <span>{fb.likes} Me gusta</span>
-                    </button>
-                  </div>
-                </article>
-              ))}
+                  </article>
+                );
+              })}
 
               {feedbacks.length === 0 && (
                 <div className="comments-empty">
@@ -256,7 +414,9 @@ export default function TestimonialsPage() {
               <div className="testimonial-form-header">
                 <div>
                   <span className="testimonials-kicker">Participa</span>
-                  <h3>Deja tu testimonio</h3>
+                  <h3>
+                    {editingFeedbackId ? "Edita tu testimonio" : "Deja tu testimonio"}
+                  </h3>
                 </div>
 
                 <button
@@ -266,12 +426,24 @@ export default function TestimonialsPage() {
                 >
                   {userEmail ? "Mi cuenta" : "Participar"}
                 </button>
+                
               </div>
 
               <p>
-                Comparte tu experiencia usando Blue. Para publicar tu comentario debes
-                iniciar sesión.
-              </p>
+  Comparte tu experiencia usando Blue. Para evitar spam, pedimos iniciar
+  sesión con un código enviado a tu correo. Tu comentario se mostrará
+  públicamente como “Usuario de Blue”.
+</p>
+
+
+
+
+              {userActiveFeedback && !editingFeedbackId && (
+                <div className="testimonial-user-notice">
+                  Ya tienes un testimonio activo. Puedes editarlo o eliminarlo desde
+                  tu comentario.
+                </div>
+              )}
 
               <TextField
                 className="testimonial-field"
@@ -297,8 +469,22 @@ export default function TestimonialsPage() {
                 className="testimonial-button"
                 disabled={loading}
               >
-                {loading ? "Enviando..." : "Enviar feedback"}
+                {loading
+                  ? "Guardando..."
+                  : editingFeedbackId
+                  ? "Actualizar testimonio"
+                  : "Enviar feedback"}
               </Button>
+
+              {editingFeedbackId && (
+                <button
+                  type="button"
+                  className="testimonial-cancel-edit"
+                  onClick={handleCancelEdit}
+                >
+                  Cancelar edición
+                </button>
+              )}
             </Box>
           </ThemeProvider>
         </div>
@@ -320,8 +506,8 @@ export default function TestimonialsPage() {
 
           <p className="auth-drawer-description">
             {userEmail
-              ? "Ya puedes publicar testimonios y participar en la comunidad de Blue."
-              : "Inicia sesión o crea una cuenta para dejar tu experiencia usando Blue."}
+              ? "Tu identidad no se muestra públicamente. Tus comentarios aparecen como “Usuario de Blue”."
+              : "Inicia sesión con un código enviado a tu correo para dejar tu experiencia usando Blue y evitar spam."}
           </p>
 
           {userEmail ? (
@@ -350,6 +536,44 @@ export default function TestimonialsPage() {
           )}
         </Box>
       </Drawer>
+
+      {showDisclaimer && (
+  <div className="disclaimer-overlay">
+    <div className="disclaimer-modal">
+      <span className="disclaimer-kicker">
+        PRIVACIDAD Y SEGURIDAD
+      </span>
+
+      <h3>
+        Sobre los testimonios de Blue
+      </h3>
+
+      <p>
+        Para publicar comentarios y opiniones,
+        Blue solicita únicamente la verificación
+        de un correo electrónico como medida de
+        seguridad destinada a prevenir spam,
+        actividad automatizada y usos indebidos
+        de la plataforma.
+      </p>
+
+      <p>
+        Los comentarios se muestran públicamente
+        bajo la denominación “Usuario de Blue”.
+        El correo electrónico no es utilizado con
+        fines comerciales ni compartido con terceros.
+      </p>
+
+      <button
+        type="button"
+        className="disclaimer-button"
+        onClick={handleCloseDisclaimer}
+      >
+        Entendido
+      </button>
+    </div>
+  </div>
+)}
     </section>
   );
 }

@@ -86,7 +86,7 @@ export default function DisclosurePolicyPage() {
         <h4 className="disclosurepolicy-heading">IV.2. Canal de envío</h4>
 
         <p className="disclosurepolicy-text">
-          Los reportes deben remitirse exclusivamente a <strong>soporte@blue.com</strong>. El asunto del mensaje
+          Los reportes deben remitirse exclusivamente a <strong>soporte@b1peru.com</strong>. El asunto del mensaje
           deberá ser: <strong style={{color:'#3677FF'}}>“Reporte de vulnerabilidad - Blue”</strong>.
         </p>
 
@@ -221,7 +221,7 @@ export default function DisclosurePolicyPage() {
         <h3 className="disclosurepolicy-subtitle">XII. CONTACTO</h3>
 
         <p className="disclosurepolicy-text">
-          Para cualquier consulta adicional sobre esta política, puede escribir a: <strong style={{color:'#3677FF'}}>soporte@blue.com</strong>.
+          Para cualquier consulta adicional sobre esta política, puede escribir a: <strong style={{color:'#3677FF'}}>soporte@b1peru.com</strong>.
         </p>
 
         <p className="disclosurepolicy-date">Vigente desde: 05 / 05 / 2026</p>

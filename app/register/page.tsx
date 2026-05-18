@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { saveSession } from "../lib/sessionStorage";
 import { sendAccessCode, verifyAccessCode } from "../lib/passwordOtpAuth";
+import { toast } from "sonner";
 
 export default function RegisterForm() {
   const router = useRouter();
@@ -29,7 +30,7 @@ export default function RegisterForm() {
 
   const handleSendCode = async () => {
     if (!email.trim()) {
-      alert("Ingresa tu correo");
+      toast.info("Ingresa tu correo");
       return;
     }
 
@@ -38,27 +39,34 @@ export default function RegisterForm() {
     try {
       await sendAccessCode(email.trim());
 
-      alert("Te enviamos un código a tu correo.");
+      toast.info("Te enviamos un código a tu correo.");
       setStep("code");
       setCooldown(60);
     } catch (error: unknown) {
-      console.error(error);
+  console.error(error);
 
-      const message = error instanceof Error ? error.message : "";
+  const message = error instanceof Error ? error.message : "";
 
-      if (message.includes("rate limit")) {
-        alert("Has solicitado muchos códigos. Espera unos minutos e inténtalo otra vez.");
-      } else {
-        alert("No se pudo enviar el código.");
-      }
-    } finally {
-      setLoading(false);
-    }
+  const secondsMatch = message.match(/after (\d+) seconds/i);
+  const waitSeconds = secondsMatch ? Number(secondsMatch[1]) : 60;
+
+  if (
+    message.includes("only request this after") ||
+    message.includes("rate limit")
+  ) {
+    toast.warning(`Por seguridad, espera ${waitSeconds} segundos antes de solicitar otro código.`);(`Por seguridad, espera ${waitSeconds} segundos antes de solicitar otro código.`);
+    setCooldown(waitSeconds);
+  } else {
+    toast.error("No se pudo enviar el código. Inténtalo nuevamente.");
+  }
+} finally {
+  setLoading(false);
+}
   };
 
   const handleVerifyCode = async () => {
     if (!code.trim()) {
-      alert("Ingresa el código");
+      toast.info("Ingresa el código");
       return;
     }
 
@@ -71,11 +79,11 @@ export default function RegisterForm() {
         saveSession(session);
       }
 
-      alert("Cuenta verificada correctamente 🎉");
-      router.push("/");
+      toast.success("Cuenta verificada correctamente 🎉");
+      router.push("/testimonials");
     } catch (error) {
       console.error(error);
-      alert("Código inválido o expirado.");
+      toast.error("Código inválido o expirado.");
     } finally {
       setLoading(false);
     }
@@ -83,7 +91,7 @@ export default function RegisterForm() {
 
   const handleResendCode = async () => {
     if (!email.trim()) {
-      alert("Ingresa un correo válido");
+      toast.info("Ingresa un correo válido");
       return;
     }
 
@@ -94,7 +102,7 @@ export default function RegisterForm() {
     try {
       await sendAccessCode(email.trim());
 
-      alert("Te enviamos un nuevo código ✨");
+      toast.info("Te enviamos un nuevo código");
       setCooldown(60);
     } catch (error: unknown) {
       console.error(error);
@@ -102,9 +110,9 @@ export default function RegisterForm() {
       const message = error instanceof Error ? error.message : "";
 
       if (message.includes("rate limit")) {
-        alert("Espera unos minutos antes de pedir otro código.");
+        toast.warning("Espera unos minutos antes de pedir otro código.");
       } else {
-        alert("No se pudo reenviar el código.");
+        toast.error("No se pudo reenviar el código.");
       }
     } finally {
       setResending(false);
@@ -140,15 +148,19 @@ export default function RegisterForm() {
             />
 
             <Button
-              type="button"
-              variant="contained"
-              fullWidth
-              className="auth-button"
-              disabled={loading}
-              onClick={handleSendCode}
-            >
-              {loading ? "Enviando código..." : "Enviar código"}
-            </Button>
+  type="button"
+  variant="contained"
+  fullWidth
+  className="auth-button"
+  disabled={loading || cooldown > 0}
+  onClick={handleSendCode}
+>
+  {loading
+    ? "Enviando código..."
+    : cooldown > 0
+    ? `Espera ${cooldown}s`
+    : "Enviar código"}
+</Button>
 
             <div className="auth-switch">
               <span>¿Ya tienes una cuenta?</span>
