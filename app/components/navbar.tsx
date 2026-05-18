@@ -85,6 +85,7 @@ const handleLogout = async () => {
         <li><Link href="/usecases" className="nav-link">Sectores</Link></li>
         <li className="nav-dot">·</li>
         <li><Link href="/testimonials" className="nav-link">Testimonios</Link></li>
+        <li className="nav-dot">·</li>
       </ul>
 
                 <Link href="/earlyaccess" className="nav-cta-btn">
