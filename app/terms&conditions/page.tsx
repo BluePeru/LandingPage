@@ -424,7 +424,7 @@ export default function TermsAndConditionsPage() {
       relación con el uso de la Aplicación.
     </p>
 
-    <p className="tyc-date">
+    <p className="tyc-date" style={{color:'#d1d5db'}}>
       Vigente desde: 05 / 05 / 2026
     </p>
   </div>

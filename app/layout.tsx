@@ -4,6 +4,7 @@ import "./styles/globals.css";
 import ClientWrapper from "./components/ClientWrapper";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
+import AuthListener from "./components/authlistener";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,6 +35,7 @@ export default function RootLayout({
       <body>
           
           <ClientWrapper>
+            <AuthListener />
             <Navbar />
             <main>{children}</main>
             <Footer />

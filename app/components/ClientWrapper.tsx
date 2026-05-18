@@ -1,43 +1,33 @@
 "use client";
-import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
+
+import { useEffect, useState } from "react";
 import Loader from "./loader";
 
 export default function ClientWrapper({ children }: { children: React.ReactNode }) {
   const [loading, setLoading] = useState(true);
-  const [fade, setFade] = useState(false);
-  const router = useRouter();
 
   useEffect(() => {
-    // Manejar el loader
     const alreadyLoaded = sessionStorage.getItem("alreadyLoaded");
-    if (alreadyLoaded) {
-      setTimeout(() => {
-        setLoading(false);
-        setFade(true);
-      }, 0);
-    } else {
-      const timer = setTimeout(() => {
-        setLoading(false);
-        setFade(true);
+
+    const timer = setTimeout(
+      () => {
         sessionStorage.setItem("alreadyLoaded", "true");
-      }, 2000);
-      return () => clearTimeout(timer);
-    }
-  }, []);
+        setLoading(false);
+      },
+      alreadyLoaded ? 0 : 1800
+    );
 
-  useEffect(() => {
-    // Interceptar el botón atrás y mandar a Home
-    const handlePopState = (event: PopStateEvent) => {
-      event.preventDefault();
-      router.push("/"); // siempre manda a Home sin hash
+    const safetyTimer = setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+
+    return () => {
+      clearTimeout(timer);
+      clearTimeout(safetyTimer);
     };
-
-    window.addEventListener("popstate", handlePopState);
-    return () => window.removeEventListener("popstate", handlePopState);
-  }, [router]);
+  }, []);
 
   if (loading) return <Loader />;
 
-  return <div className={fade ? "fade-in" : ""}>{children}</div>;
+  return <div className="fade-in">{children}</div>;
 }

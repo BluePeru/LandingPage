@@ -6,7 +6,7 @@ export default function WhoarewePage() {
       <h2>Quiénes Somos</h2>
 
       <div className="whoarewe-content">
-        <p className="whoarewe-brand">Blue</p>
+        <h2 className="whoarewe-brand">Blue</h2>
 
         <h3 className="whoarewe-subtitle">I. NUESTRA IDENTIDAD</h3>
 
