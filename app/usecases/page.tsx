@@ -151,14 +151,16 @@ export default function UseCasesPage() {
     </li>
   </ul>
 
-  <p className="usecases-source-note">
+      <h4 className="usecases-source-note-h4">Alcance de la información</h4>
 
-      <h4>Alcance de la información</h4>
+  <p   className="usecases-source-note">
 
 Blue opera como una plataforma tecnológica orientada a la visualización de datos y la colaboración ciudadana. La información contenida en ella tiene un propósito meramente referencial y, por lo tanto, no sustituye las fuentes oficiales, los servicios de emergencia ni las entidades gubernamentales competentes.
 
   </p>
+
 </div>
+
       </div>
     </section>
   );

@@ -151,7 +151,6 @@ ul {
   justify-content: space-between;
   padding: 16px 48px;
   transition: background .35s, border-bottom .35s, backdrop-filter .35s;
-
 }
 
 .navbar.scrolled {
@@ -243,9 +242,12 @@ ul {
   font-size: 14px;
   font-weight: 500;
   color: #aaa;
+  border: none;
+  background: transparent;
   padding: 8px 14px;
   border-radius: 10px;
-  transition: color .2s, background .2s
+  transition: color .2s, background .2s;
+  cursor: pointer;
 }
 
 .nav-link:hover,
@@ -263,9 +265,10 @@ ul {
   font-size: 14px;
   font-weight: 600;
   color: #111;
-  background: #fff;
   transition: transform .2s, box-shadow .2s;
+  pointer-events: none;
 }
+
 
 .nav-cta-btn:hover {
   transform: translateY(-1px);
@@ -1278,21 +1281,21 @@ ul {
   color: #3677FF;
 }
 
-.usecases-source-note {
-  padding-top: 18px;
+.usecases-source-note-h4{
+    border-top: 1px solid rgba(148, 163, 184, 0.14);
+    padding-top: 20px;
+}
 
-  border-top: 1px solid rgba(148, 163, 184, 0.14);
+
+.usecases-source-note{
+  padding-top: 18px;
 
   color: #94a3b8 !important;
 
-  font-size: 0.93rem !important;
+  font-size: 0.90rem !important;
 }
 
-.usecases-source-note h4 {
-  color: #ffff !important;
 
-  font-size: 1rem !important;
-}
 
 
 
