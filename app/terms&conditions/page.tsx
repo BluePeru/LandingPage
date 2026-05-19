@@ -107,7 +107,7 @@ export default function TermsAndConditionsPage() {
       creando una contraseña segura. Es responsable de mantener la confidencialidad de
       sus credenciales y de toda actividad que ocurra bajo su cuenta. En caso de sospecha
       de acceso no autorizado, deberá notificarlo de inmediato a Blue al correo
-      <strong style={{color:'#3677FF'}}> soporte@blue.com</strong>.
+      <strong style={{color:'#3677FF'}}> soporte@b1peru.com</strong>.
     </p>
 
     <h3 className="tyc-subtitle">V. CÓDIGO DE CONDUCTA Y NORMAS DE PUBLICACIÓN</h3>
@@ -177,7 +177,7 @@ export default function TermsAndConditionsPage() {
     <p className="tyc-text">
       VI.5. Toda sanción será notificada al Usuario a través del correo electrónico
       registrado. El Usuario podrá impugnar la sanción mediante comunicación dirigida a
-      <strong style={{color:'#3677FF'}}> reclamos@blue.com</strong>.
+      <strong style={{color:'#3677FF'}}> reclamos@b1peru.com</strong>.
     </p>
 
     <h3 className="tyc-subtitle">VII. CONTENIDO DE LOS REPORTES Y RESPONSABILIDAD DEL USUARIO</h3>

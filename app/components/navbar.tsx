@@ -1,8 +1,7 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { supabase } from "../lib/supabaseClient";
-import { logout } from "../lib/auth";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -18,51 +17,22 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const [userEmail, setUserEmail] = useState<string | null>(null);
-
-useEffect(() => {
-  const loadUser = async () => {
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
-
-    setUserEmail(user?.email ?? null);
-  };
-
-  loadUser();
-
-  const {
-    data: { subscription },
-  } = supabase.auth.onAuthStateChange((_event, session) => {
-    setUserEmail(session?.user?.email ?? null);
-  });
-
-  return () => {
-    subscription.unsubscribe();
-  };
-}, []);
-
-const handleLogout = async () => {
-  try {
-    await logout();
-    setUserEmail(null);
-    alert("Sesión cerrada correctamente");
-  } catch (error) {
-    console.error(error);
-    alert("No se pudo cerrar sesión");
-  }
-};
-
   return (
     <nav className="navbar" id="main-nav">
-      <Link href="/" className="navbar-logo">
-  <img
-    src="/assets/logonav.png"
-    alt="Blue Logo"
-    className="navbar-logo-image"
-  />
+    <Link href="/" className="navbar-logo">
+  <div className="blue-eye-logo">
+    <div className="eye-ring outer-ring">
+      <div className="eye-ring middle-ring">
+        <div className="eye-ring inner-ring"></div>
+      </div>
+    </div>
+  </div>
 
+  <span className="navbar-logo-text">Blue</span>
 </Link>
+      {/*<Link href="/" className="navbar-logo">
+        <Image src="/assets/logoblueoficial.png" alt="Blue" width={40} height={40} />
+      </Link>*/}
 
       {/* Hamburguesa controlada por estado */}
       <button
@@ -84,7 +54,7 @@ const handleLogout = async () => {
         <li className="nav-dot">·</li>
         <li><Link href="/usecases" className="nav-link">Sectores</Link></li>
         <li className="nav-dot">·</li>
-        <li><Link href="/testimonials" className="nav-link">Testimonios</Link></li>
+        <li><Link href="/home#testimonials" className="nav-link">Testimonios</Link></li>
         <li className="nav-dot">·</li>
       </ul>
 

@@ -2,7 +2,7 @@
 
 import Hero from './components/hero';
 import HowItWorks from './components/howitworks';
-import Mission from './components/mission';
+import Testimonials from './components/testimonials';
 import AppPreview from './components/app-preview';
 import Features from './components/features';
 import CTA from './components/cta';
@@ -22,14 +22,16 @@ export default function Home() {
   {/* ===== HOW IT WORKS ===== */}
   
       <HowItWorks />
-  {/* ===== MISSION / WORD REVEAL ===== */}
-      <Mission />
 
   {/* ===== APP PREVIEW ===== */}
       <AppPreview />
 
   {/* ===== FEATURES ===== */}
       <Features />
+
+        {/* ===== TESTIMONIALS ===== */}
+      <Testimonials />
+
   {/* ===== CTA with Evil Eye ===== */}
 
       <CTA />
