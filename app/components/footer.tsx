@@ -43,7 +43,7 @@ export default function Footer() {
   </a>
 
   <a
-    href=""
+    href="https://www.instagram.com/blue_peruoficial/"
     target="_blank"
     rel="noopener noreferrer"
     className="footer-social-link"
