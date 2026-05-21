@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { useRouter, usePathname } from "next/navigation";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -17,17 +18,29 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const scrollToSection = (id: string) => {
-  const section = document.getElementById(id);
+const router = useRouter();
+const pathname = usePathname();
 
-  if (!section) return;
+const scrollToSection = (id: string) => {
+  const goToSection = () => {
+    const section = document.getElementById(id);
 
-  section.scrollIntoView({
-    behavior: "smooth",
-    block: "start",
-  });
+    if (!section) return;
 
-  window.history.replaceState(null, "", `#${id}`);
+    section.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+
+    window.history.replaceState(null, "", `/home#${id}`);
+  };
+
+  if (pathname !== "/home") {
+    router.push(`/home#${id}`);
+    return;
+  }
+
+  goToSection();
 };
 
   return (
