@@ -8,15 +8,15 @@ export async function POST(req) {
     port: 465,
     secure: true,
     auth: {
-      user: "admin@b1peru.com", // tu correo Zoho
-      pass: "EhMKqkh9pr60",        // contraseña de aplicación Zoho
+      user: "soporte@b1peru.com", // tu correo Zoho
+      pass: "rpDqBvf4iFgz",        // contraseña de aplicación Zoho
     },
-  });
+  }); 
 
   try {
     await transporter.sendMail({
-      from: "admin@b1peru.com",
-      to: "admin@b1peru.com",
+      from: "soporte@b1peru.com",
+      to: "soporte@b1peru.com",
       subject: titulo,
       html: `
     <div style="font-family: Arial, sans-serif; background:#f9fafb; padding:20px; border-radius:8px; border:1px solid #ddd;">
