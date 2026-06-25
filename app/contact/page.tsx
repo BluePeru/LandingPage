@@ -3,6 +3,8 @@
 import { TextField, Button, Box } from "@mui/material";
 import { useForm } from "react-hook-form";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 const theme = createTheme({
   palette: {
@@ -21,14 +23,18 @@ type ContactFormData = {
 };
 
 export default function ContactPage() {
+  const router = useRouter();
+  const [submitError, setSubmitError] = useState("");
+
   const {
     register,
     handleSubmit,
-    reset,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm<ContactFormData>();
 
   const onSubmit = async (data: ContactFormData) => {
+    setSubmitError("");
+
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
@@ -40,15 +46,14 @@ export default function ContactPage() {
       });
 
       if (!response.ok) {
-        alert("Error al enviar el mensaje. Por favor, inténtalo de nuevo.");
+        setSubmitError("No pudimos enviar tu mensaje. Por favor, inténtalo nuevamente en unos minutos.");
         return;
       }
 
-      alert("Mensaje enviado con éxito. ¡Gracias por contactarnos!");
-      reset();
+      router.push("/contact/success");
     } catch (error) {
       console.error("Error detallado:", error);
-      alert("Error al enviar el mensaje. Por favor, inténtalo de nuevo.");
+      setSubmitError("No pudimos enviar tu mensaje. Por favor, inténtalo nuevamente en unos minutos.");
     }
   };
 
@@ -64,20 +69,18 @@ export default function ContactPage() {
 
       <section className="contact-section" id="contacto">
         <ThemeProvider theme={theme}>
-          <Box
-            component="form"
-            onSubmit={handleSubmit(onSubmit)}
-            className="contact-form"
-          >
+          <Box component="form" onSubmit={handleSubmit(onSubmit)} className="contact-form">
             <span className="contact-label">CONTACTO</span>
 
-            <h2 className="contact-title">
-              ¿Tienes alguna pregunta o comentario?
-            </h2>
+            <h2 className="contact-title">¿Tienes alguna pregunta o comentario?</h2>
 
-            <p className="contact-description">
-              Escríbenos y te responderemos lo antes posible.
-            </p>
+            <p className="contact-description">Escríbenos y te responderemos lo antes posible.</p>
+
+            {submitError && (
+              <p className="contact-error" role="alert">
+                {submitError}
+              </p>
+            )}
 
             <TextField
               label="Nombre"
@@ -138,8 +141,14 @@ export default function ContactPage() {
               helperText={errors.mensaje?.message}
             />
 
-            <Button type="submit" variant="contained" fullWidth className="contact-button">
-              Enviar mensaje
+            <Button
+              type="submit"
+              variant="contained"
+              fullWidth
+              className="contact-button"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? "Enviando..." : "Enviar mensaje"}
             </Button>
           </Box>
         </ThemeProvider>

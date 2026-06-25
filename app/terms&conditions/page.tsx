@@ -7,6 +7,8 @@ export default function TermsAndConditionsPage() {
   <h2>Términos y Condiciones</h2>
 
   <div className="tyc-content">
+    <h2 className="tyc-brand">Blue</h2>
+
     <h3 className="tyc-subtitle">I. INTRODUCCIÓN Y ACEPTACIÓN</h3>
 
     <p className="tyc-text">

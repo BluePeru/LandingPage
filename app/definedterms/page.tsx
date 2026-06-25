@@ -7,7 +7,7 @@ export default function DefinedTermsPage() {
       <h2>Términos Definidos</h2>
 
       <div className="definedterms-content">
-        <p className="definedterms-brand">Blue</p>
+        <h2 className="definedterms-brand">Blue</h2>
 
         <p className="definedterms-text">
           El presente documento tiene por objeto establecer el significado preciso de los términos, conceptos y

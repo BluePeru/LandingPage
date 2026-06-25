@@ -2648,6 +2648,18 @@ ul {
   margin-bottom: 26px;
 }
 
+.contact-error {
+  margin-bottom: 16px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(248, 113, 113, 0.28);
+  color: #fecaca;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
 .contact-button {
   margin-top: 18px !important;
   padding: 12px 16px !important;
@@ -2655,6 +2667,106 @@ ul {
   font-weight: 700 !important;
   text-transform: none !important;
   background: linear-gradient(90deg, #3b82f6, #2563eb) !important;
+}
+
+.contact-success-section {
+  min-height: 100vh;
+  padding: 120px 20px 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(circle at top, rgba(59, 130, 246, 0.16), transparent 36%),
+    #030712;
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-success-card {
+  width: 100%;
+  max-width: 560px;
+  padding: 42px 36px;
+  border-radius: 28px;
+  background: rgba(15, 23, 42, 0.82);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.38);
+  backdrop-filter: blur(14px);
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.contact-success-icon {
+  width: 68px;
+  height: 68px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #86efac;
+  background: rgba(34, 197, 94, 0.13);
+  border: 1px solid rgba(134, 239, 172, 0.36);
+}
+
+.contact-success-icon svg {
+  width: 34px;
+  height: 34px;
+}
+
+.contact-success-title {
+  color: #ffffff;
+  font-size: clamp(1.8rem, 5vw, 2.55rem);
+  line-height: 1.1;
+  font-weight: 900;
+  margin: 12px 0 16px;
+}
+
+.contact-success-description {
+  color: #cbd5e1;
+  font-size: 1rem;
+  line-height: 1.75;
+  margin-bottom: 18px;
+}
+
+.contact-success-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.contact-success-primary,
+.contact-success-secondary {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  padding: 12px 18px;
+  font-size: 0.92rem;
+  font-weight: 800;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.contact-success-primary {
+  color: #ffffff;
+  background: linear-gradient(90deg, #3b82f6, #2563eb);
+}
+
+.contact-success-secondary {
+  color: #dbeafe;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(148, 163, 184, 0.22);
+}
+
+.contact-success-primary:hover,
+.contact-success-secondary:hover {
+  transform: translateY(-2px);
+}
+
+.contact-success-secondary:hover {
+  border-color: rgba(59, 130, 246, 0.5);
 }
 
 
@@ -2811,7 +2923,9 @@ ul {
 }
 
 
-.whoarewe-brand {
+.whoarewe-brand,
+.tyc-brand,
+.definedterms-brand {
   color: #3B82F6 !important;
   font-weight: 700;
 }
@@ -2966,6 +3080,241 @@ ul {
 
 .auth-switch-link:hover {
   color: #60a5fa;
+}
+
+.deleteaccount-section {
+  min-height: 100vh;
+  padding: 100px 20px 72px;
+  background: #030712;
+  color: #ffffff;
+}
+
+.deleteaccount-shell {
+  width: min(760px, 100%);
+  margin: 0 auto;
+}
+
+.deleteaccount-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.deleteaccount-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 13px;
+  display: grid;
+  place-items: center;
+  color: #ff6b6b;
+  background: rgba(239, 68, 68, 0.18);
+  border: 1px solid rgba(248, 113, 113, 0.45);
+}
+
+.deleteaccount-icon svg {
+  width: 25px;
+  height: 25px;
+}
+
+.deleteaccount-header h1 {
+  font-size: clamp(1.45rem, 4vw, 2rem);
+  line-height: 1.15;
+  font-weight: 900;
+  margin-bottom: 6px;
+}
+
+.deleteaccount-header p {
+  color: #8ca4c3;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.deleteaccount-intro,
+.deleteaccount-step,
+.deleteaccount-data-item,
+.deleteaccount-retention-card {
+  background: rgba(15, 23, 42, 0.48);
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+.deleteaccount-intro {
+  border-radius: 13px;
+  padding: 26px 28px;
+  color: #dbeafe;
+  font-size: 0.95rem;
+  font-weight: 650;
+  line-height: 1.75;
+  margin-bottom: 34px;
+}
+
+.deleteaccount-group {
+  margin-top: 30px;
+}
+
+.deleteaccount-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #ffffff;
+  font-size: 1.15rem;
+  line-height: 1.25;
+  font-weight: 900;
+  margin-bottom: 20px;
+}
+
+.deleteaccount-title > span {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 0.74rem;
+  font-weight: 900;
+}
+
+.deleteaccount-title svg {
+  width: 14px;
+  height: 14px;
+}
+
+.deleteaccount-title-blue > span {
+  color: #60a5fa;
+  border: 1px solid #60a5fa;
+}
+
+.deleteaccount-title-green > span {
+  color: #10b981;
+}
+
+.deleteaccount-title-yellow > span {
+  color: #facc15;
+  border: 1px solid #facc15;
+}
+
+.deleteaccount-steps,
+.deleteaccount-retention {
+  display: grid;
+  gap: 22px;
+}
+
+.deleteaccount-step {
+  min-height: 88px;
+  border-radius: 11px;
+  padding: 22px 24px;
+  display: flex;
+  align-items: center;
+  gap: 17px;
+}
+
+.deleteaccount-step > span {
+  width: 37px;
+  height: 37px;
+  flex: 0 0 37px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #bfdbfe;
+  background: rgba(37, 99, 235, 0.32);
+  border: 1px solid rgba(96, 165, 250, 0.35);
+  font-weight: 800;
+}
+
+.deleteaccount-step h3,
+.deleteaccount-retention-card h3 {
+  color: #ffffff;
+  font-size: 0.95rem;
+  line-height: 1.25;
+  font-weight: 900;
+  margin-bottom: 6px;
+}
+
+.deleteaccount-step p,
+.deleteaccount-retention-card p {
+  color: #b7d8ff;
+  font-size: 0.82rem;
+  line-height: 1.55;
+}
+
+.deleteaccount-inline-link {
+  color: #60a5fa;
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.deleteaccount-inline-link:hover {
+  color: #93c5fd;
+}
+
+.deleteaccount-divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(148, 163, 184, 0.28);
+  margin: 46px 0 30px;
+}
+
+.deleteaccount-data-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.deleteaccount-data-item {
+  min-height: 42px;
+  border-radius: 7px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #b7d8ff;
+  font-size: 0.82rem;
+  line-height: 1.35;
+}
+
+.deleteaccount-data-item span {
+  width: 5px;
+  height: 5px;
+  flex: 0 0 5px;
+  border-radius: 50%;
+  background: #10b981;
+}
+
+.deleteaccount-retention-card {
+  border-radius: 9px;
+  padding: 18px 20px;
+}
+
+@media (max-width: 768px) {
+  .deleteaccount-section {
+    padding: 92px 16px 56px;
+  }
+
+  .deleteaccount-header {
+    align-items: flex-start;
+  }
+
+  .deleteaccount-icon {
+    width: 46px;
+    height: 46px;
+  }
+
+  .deleteaccount-intro {
+    padding: 22px;
+    font-size: 0.9rem;
+  }
+
+  .deleteaccount-step {
+    align-items: flex-start;
+    padding: 20px;
+  }
+
+  .deleteaccount-data-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 1024px) {
