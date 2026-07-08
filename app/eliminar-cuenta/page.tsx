@@ -8,7 +8,7 @@ const deletionSteps = [
       <>
         Escribe a soporte@b1peru.com desde la dirección de correo asociada a tu cuenta de Blue o también puedes usar
         nuestro formulario de{" "}
-        <Link href="/contact" className="deleteaccount-inline-link">
+        <Link href="/contacto" className="deleteaccount-inline-link">
           contacto
         </Link>
         .

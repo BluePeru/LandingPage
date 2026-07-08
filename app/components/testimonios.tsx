@@ -23,7 +23,7 @@ export default function Testimonials() {
   ];
 
   return (
-    <section className="section section-testimonials" id="testimonials">
+    <section className="section section-testimonials" id="testimonios">
       <div className="aurora aurora-left"></div>
       <div className="aurora aurora-right"></div>
 

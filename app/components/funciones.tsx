@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Features() {
   return (  
-    <section className="section section-features" id="features">
+    <section className="section section-features" id="funciones">
     <div className="aurora aurora-left"></div>
     <div className="aurora aurora-right"></div>
 

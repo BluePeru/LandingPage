@@ -64,20 +64,20 @@ export default function Footer() {
     <div className="footer-right">
       <div className="footer-column">
         <h4>Legal</h4>
-        <Link href="/terms&conditions" className="footer-link">Términos y Condiciones</Link>
-        <Link href="/definedterms" className="footer-link">Términos Definidos</Link>
-        <Link href="/codeofconduct" className="footer-link">Código de Conducta</Link>
+        <Link href="/terminos-y-condiciones" className="footer-link">Términos y Condiciones</Link>
+        <Link href="/terminos-definidos" className="footer-link">Términos Definidos</Link>
+        <Link href="/codigo-de-conducta" className="footer-link">Código de Conducta</Link>
       </div>
 
       <div className="footer-column">
         <h4>Políticas</h4>
-        <Link href="/disclosurepolicy" className="footer-link">Divulgación Responsable</Link>
+        <Link href="/divulgacion-responsable" className="footer-link">Divulgación Responsable</Link>
       </div>
 
       <div className="footer-column">
         <h4>Blue</h4>
-        <Link href="/whoarewe" className="footer-link">Quiénes Somos</Link>
-        <Link href="/contact" className="footer-link">Contacto</Link> 
+        <Link href="/quienes-somos" className="footer-link">Quiénes Somos</Link>
+        <Link href="/contacto" className="footer-link">Contacto</Link> 
         <Link href="/eliminar-cuenta" className="footer-link">Sobre Eliminar Cuenta</Link>
       </div>
     </div>

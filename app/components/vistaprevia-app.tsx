@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function AppPreview() {
   return (  
-    <section className="section section-app" id="app-preview">
+    <section className="section section-app" id="vistaprevia-app">
     <div className="aurora aurora-left"></div>
     <div className="aurora aurora-right"></div>
 

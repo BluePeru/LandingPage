@@ -32,7 +32,7 @@ export default function ContactSuccessPage() {
           <Link href="/" className="contact-success-primary">
             Volver al inicio
           </Link>
-          <Link href="/contact" className="contact-success-secondary">
+          <Link href="/contacto" className="contact-success-secondary">
             Enviar otro mensaje
           </Link>
         </div>

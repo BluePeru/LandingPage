@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function HowItWorks() {
   return (  
-    <section className="section section-how" id="how-it-works">
+    <section className="section section-how" id="como-funciona">
     {/* Aurora side glows */}
     <div className="aurora aurora-left"></div>
     <div className="aurora aurora-right"></div>

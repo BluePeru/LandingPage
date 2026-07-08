@@ -50,7 +50,7 @@ export default function ContactPage() {
         return;
       }
 
-      router.push("/contact/success");
+      router.push("/contacto/success");
     } catch (error) {
       console.error("Error detallado:", error);
       setSubmitError("No pudimos enviar tu mensaje. Por favor, inténtalo nuevamente en unos minutos.");

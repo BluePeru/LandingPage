@@ -75,7 +75,7 @@ const scrollToSection = (id: string) => {
     <button
       type="button"
       className="nav-link"
-      onClick={() => scrollToSection("how-it-works")}
+      onClick={() => scrollToSection("como-funciona")}
     >
       Cómo Funciona
     </button>
@@ -87,7 +87,7 @@ const scrollToSection = (id: string) => {
     <button
       type="button"
       className="nav-link"
-      onClick={() => scrollToSection("app-preview")}
+      onClick={() => scrollToSection("vistaprevia-app")}
     >
       La App
     </button>
@@ -99,7 +99,7 @@ const scrollToSection = (id: string) => {
     <button
       type="button"
       className="nav-link"
-      onClick={() => scrollToSection("features")}
+      onClick={() => scrollToSection("funciones")}
     >
       Funciones
     </button>
@@ -108,7 +108,7 @@ const scrollToSection = (id: string) => {
   <li className="nav-dot">·</li>
 
   <li>
-    <Link href="/usecases" className="nav-link">
+    <Link href="/casos-de-uso" className="nav-link">
       Sectores
     </Link>
   </li>
@@ -119,7 +119,7 @@ const scrollToSection = (id: string) => {
     <button
       type="button"
       className="nav-link"
-      onClick={() => scrollToSection("testimonials")}
+      onClick={() => scrollToSection("testimonios")}
     >
       Testimonios
     </button>
