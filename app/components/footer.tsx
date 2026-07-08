@@ -78,7 +78,7 @@ export default function Footer() {
         <h4>Blue</h4>
         <Link href="/whoarewe" className="footer-link">Quiénes Somos</Link>
         <Link href="/contact" className="footer-link">Contacto</Link> 
-        <Link href="/deleteaccount" className="footer-link">Sobre Eliminar Cuenta</Link>
+        <Link href="/eliminar-cuenta" className="footer-link">Sobre Eliminar Cuenta</Link>
       </div>
     </div>
   </div>
