@@ -5,7 +5,23 @@ import Link from "next/link";
 export default function Hero() {
   return (
     <section className="hero hero-map" id="hero">
-      <div className="hero-map-bg"></div>
+      <div className="hero-map-bg" aria-hidden="true">
+        <div className="hero-map-browser">
+          <div className="hero-map-browser-top">
+            <span></span>
+            <span></span>
+            <span></span>
+            <p>b1peru.com/mapa</p>
+          </div>
+          <iframe
+            src="https://b1peru.com/mapa"
+            title="Vista previa del mapa de calor de Blue Perú"
+            loading="lazy"
+            tabIndex={-1}
+          />
+          <div className="hero-map-preview-shade"></div>
+        </div>
+      </div>
       <div className="hero-map-overlay"></div>
 
       <div className="hero-map-content">
@@ -34,6 +50,23 @@ export default function Hero() {
           <Link href="#how-it-works" className="btn-hero-secondary liquid-glass-dark">
             Ver cómo funciona
           </Link>
+          <a
+            href="https://b1peru.com/mapa"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-hero-live liquid-glass-dark"
+          >
+            Ver mapa de calor en vivo
+            <svg viewBox="0 0 24 24" fill="none" width="18" height="18">
+              <path
+                d="M7 17L17 7M9 7h8v8"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+              />
+            </svg>
+          </a>
           
         </div>
       </div>
