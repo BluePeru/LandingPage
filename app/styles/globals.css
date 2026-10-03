@@ -1059,6 +1059,35 @@ ul {
   }
 }
 
+/* Lower the hero copy without bringing back the navbar gap. */
+.hero-map {
+  padding-top: 170px !important;
+}
+
+.hero-map-content {
+  transform: translateY(18px);
+}
+
+@media (max-width: 900px) {
+  .hero-map {
+    padding-top: 144px !important;
+  }
+
+  .hero-map-content {
+    transform: translateY(12px);
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-map {
+    padding-top: 128px !important;
+  }
+
+  .hero-map-content {
+    transform: translateY(8px);
+  }
+}
+
 /* Force the map preview to start directly under/behind the navbar. */
 .hero-map-bg {
   align-items: stretch !important;
