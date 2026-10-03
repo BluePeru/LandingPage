@@ -44,6 +44,23 @@ export default function Hero() {
           <Link href="#how-it-works" className="btn-hero-secondary liquid-glass-dark">
             Ver cómo funciona
           </Link>
+          <a
+            href="https://b1peru.com/mapa"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-hero-live liquid-glass-dark"
+          >
+            Ver mapa de calor en vivo
+            <svg viewBox="0 0 24 24" fill="none" width="18" height="18">
+              <path
+                d="M7 17L17 7M9 7h8v8"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+              />
+            </svg>
+          </a>
         </div>
       </div>
           

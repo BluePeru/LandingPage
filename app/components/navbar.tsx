@@ -127,14 +127,6 @@ const scrollToSection = (id: string) => {
   <li className="nav-dot">·</li>
 </ul>
 
-      <a
-        href="https://b1peru.com/mapa"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="nav-cta-btn nav-map-cta"
-      >
-        Ver mapa en vivo
-      </a>
     </nav>
   );
 }
