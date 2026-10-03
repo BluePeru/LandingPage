@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useRouter, usePathname } from "next/navigation";
@@ -128,9 +127,14 @@ const scrollToSection = (id: string) => {
   <li className="nav-dot">·</li>
 </ul>
 
-                <Link href="/" className="nav-cta-btn">
-
-        </Link>
+      <a
+        href="https://b1peru.com/mapa"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="nav-cta-btn nav-map-cta"
+      >
+        Ver mapa en vivo
+      </a>
     </nav>
   );
 }
