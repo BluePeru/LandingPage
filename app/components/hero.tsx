@@ -7,12 +7,6 @@ export default function Hero() {
     <section className="hero hero-map" id="hero">
       <div className="hero-map-bg" aria-hidden="true">
         <div className="hero-map-browser">
-          <div className="hero-map-browser-top">
-            <span></span>
-            <span></span>
-            <span></span>
-            <p>b1peru.com/mapa</p>
-          </div>
           <iframe
             src="https://b1peru.com/mapa"
             title="Vista previa del mapa de calor de Blue Perú"
