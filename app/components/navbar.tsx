@@ -127,6 +127,8 @@ const scrollToSection = (id: string) => {
   <li className="nav-dot">·</li>
 </ul>
 
+      <Link href="/" className="nav-cta-btn">
+      </Link>
     </nav>
   );
 }
