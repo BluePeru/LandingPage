@@ -1039,6 +1039,34 @@ ul {
   }
 }
 
+/* Keep the live-map preview tucked behind the navbar, without the dark gap. */
+.hero-map-bg {
+  padding-top: 0;
+}
+
+.hero-map-browser {
+  height: 100%;
+  min-height: 100svh;
+}
+
+@media (max-width: 1200px) {
+  .hero-map-bg {
+    padding-top: 0;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero-map-bg {
+    padding-top: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-map-bg {
+    padding-top: 0;
+  }
+}
+
 /* Final hero responsive overrides */
 @media (max-width: 1200px) {
   .hero-map {
