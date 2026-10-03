@@ -311,7 +311,7 @@ ul {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 72px 0 0;
+  padding: 0;
   opacity: 1;
   z-index: 0;
   animation: heroMapDrift 18s ease-in-out infinite alternate;
@@ -919,7 +919,7 @@ ul {
   }
 
   .hero-map-bg {
-    padding: 96px 0 0;
+    padding: 0;
     opacity: 0.78;
   }
 
@@ -973,7 +973,7 @@ ul {
   }
 
   .hero-map-bg {
-    padding-top: 84px;
+    padding-top: 0;
     opacity: 0.62;
   }
 
@@ -1039,6 +1039,22 @@ ul {
   }
 }
 
+/* Force the map preview to start directly under/behind the navbar. */
+.hero-map-bg {
+  align-items: stretch !important;
+  padding-top: 0 !important;
+}
+
+.hero-map-browser {
+  height: 100svh !important;
+  min-height: 100svh !important;
+}
+
+.hero-map-browser iframe {
+  top: -150px;
+  height: calc(100% + 260px);
+}
+
 /* Keep the live-map preview tucked behind the navbar, without the dark gap. */
 .hero-map-bg {
   padding-top: 0;
@@ -1100,7 +1116,7 @@ ul {
   }
 
   .hero-map-bg {
-    padding: 96px 0 0;
+    padding: 0;
     opacity: 0.78;
   }
 
@@ -1154,7 +1170,7 @@ ul {
   }
 
   .hero-map-bg {
-    padding-top: 84px;
+    padding-top: 0;
     opacity: 0.62;
   }
 
@@ -1253,7 +1269,7 @@ ul {
   }
 
   .hero-map-bg {
-    padding: 96px 0 0;
+    padding: 0;
     opacity: 0.78;
   }
 
@@ -1307,7 +1323,7 @@ ul {
   }
 
   .hero-map-bg {
-    padding-top: 84px;
+    padding-top: 0;
     opacity: 0.62;
   }
 
@@ -1381,7 +1397,7 @@ ul {
 
 .hero-map-bg {
   justify-content: flex-end;
-  padding: 88px 0 0 36vw;
+  padding: 0 0 0 36vw;
   animation: none;
 }
 
@@ -1447,7 +1463,7 @@ ul {
   }
 
   .hero-map-bg {
-    padding: 96px 0 0 28vw;
+    padding: 0 0 0 28vw;
   }
 
   .hero-map-browser {
@@ -1474,7 +1490,7 @@ ul {
   }
 
   .hero-map-bg {
-    padding: 110px 0 0 0;
+    padding: 0;
     opacity: 0.72;
   }
 
@@ -3997,7 +4013,7 @@ ul {
 
 @media (max-width: 1024px) {
   .hero-map-bg {
-    padding: 84px 0 0;
+    padding: 0;
   }
 
   .hero-map-browser {
@@ -4017,7 +4033,7 @@ ul {
 
 @media (max-width: 768px) {
   .hero-map-bg {
-    padding: 98px 0 0;
+    padding: 0;
     opacity: 1;
   }
 
@@ -4368,7 +4384,7 @@ ul {
   }
 
   .hero-map-bg {
-    padding: 96px 0 0;
+    padding: 0;
     opacity: 0.78;
   }
 
@@ -4422,7 +4438,7 @@ ul {
   }
 
   .hero-map-bg {
-    padding-top: 84px;
+    padding-top: 0;
     opacity: 0.62;
   }
 
