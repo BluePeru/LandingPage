@@ -7,7 +7,11 @@ import Footer from "./components/footer";
 
 export const metadata: Metadata = {
   title: "Blue Perú",
-  description: "Landing Page Oficial de Blue Perú",
+  description:
+    "Blue Perú: plataforma de colaboración ciudadana para reportes y alertas tempranas. Explora zonas de riesgo y ayuda a proteger tu comunidad.",
+  icons: {
+    icon: [{ url: "/favicon.png", type: "image/png", sizes: "96x96" }],
+  },
 };
 
 
@@ -20,7 +24,7 @@ export default function RootLayout({
 {
     
   return (
-     <html lang="en" className="h-full antialiased">
+     <html lang="es-PE" className="h-full antialiased">
       <body>
          
           <ClientWrapper>
