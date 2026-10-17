@@ -58,6 +58,23 @@ export default function Footer() {
       <path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm0 2h10c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3zm11.5 1a1.5 1.5 0 100 3 1.5 1.5 0 000-3zM12 7a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6z" />
     </svg>
   </a>
+  <a
+    href="https://www.tiktok.com/@blue.peru"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="footer-social-link"
+    aria-label="TikTok"
+  >
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.3 0 .6.05.88.14v-3.5a6.33 6.33 0 0 0-5.33 10.86 6.34 6.34 0 0 0 10.79-4.6V8.68a8.23 8.23 0 0 0 4.82 1.54V6.8c-.35 0-.7-.04-1.05-.11z" />
+    </svg>
+  </a>
 </div>
     </div>
 

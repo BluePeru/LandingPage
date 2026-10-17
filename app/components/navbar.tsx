@@ -112,19 +112,6 @@ const scrollToSection = (id: string) => {
     </Link>
   </li>
 
-  <li className="nav-dot">·</li>
-
-  <li>
-    <button
-      type="button"
-      className="nav-link"
-      onClick={() => scrollToSection("testimonios")}
-    >
-      Testimonios
-    </button>
-  </li>
-
-  <li className="nav-dot">·</li>
 </ul>
 
       <Link href="/" className="nav-cta-btn">
